@@ -1,6 +1,6 @@
 Connected to
 
-**Page/Pages Created/updated:** {filename}.vue from #{issue number}
+**File Created/updated:** {filename}.tsx from #{issue number}
 
 **Notes:**
 
