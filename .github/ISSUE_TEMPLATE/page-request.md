@@ -2,8 +2,9 @@
 name: Page Request
 about: Use this to define a Page that a developer can build.
 title: Page Request - {PageRoute}
-labels: ""
-assignees: ""
+labels: ''
+assignees: ''
+
 ---
 
 ## Page Description
