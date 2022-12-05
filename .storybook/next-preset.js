@@ -32,7 +32,7 @@ module.exports = {
     newConfig.module.rules.push({
       test: /\.(s*)css$/,
       loaders: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../styles/global.scss'),
+      include: path.resolve(__dirname, '../styles/globals.scss'),
     });
     
     // If you are using CSS Modules, check out the setup from Justin (justincy)
