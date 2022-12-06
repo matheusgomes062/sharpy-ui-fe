@@ -26,15 +26,15 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 const Button: FunctionComponent<ButtonProps> = ({ 
-  primary = false,
+  primary = true,
   size = 'medium',
   label,
   ...props }) => {
-  const mode = primary ? 'button--primary' : 'button--secondary';
+  const mode = primary ? styles['btn--primary'] : styles['btn--secondary'];
   return (
     <button
       type="button"
-      className={[styles.button, `${styles.button}--${size}`, mode].join(' ')}
+      className={[styles.btn, styles[`btn--${size}`], mode].join(' ')}
       {...props}
     >
       {label}
