@@ -26,8 +26,8 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 const Button: FunctionComponent<ButtonProps> = ({ 
-  primary = true,
-  size = 'medium',
+  primary,
+  size,
   label,
   ...props }) => {
   const mode = primary ? styles['btn--primary'] : styles['btn--secondary'];
