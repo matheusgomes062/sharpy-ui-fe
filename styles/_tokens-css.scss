@@ -1,0 +1,9 @@
+@import "./_tokens.scss";
+
+:root {
+  --color-primary-purple-01: #{$primary-purple};
+  --color-primary-orange-01: #{$primary-orange};
+  --color-primary-grey-01: #{$primary-grey};
+  --color-primary-black-01: #{$black};
+  --color-primary-white-01: #{$white};
+}
