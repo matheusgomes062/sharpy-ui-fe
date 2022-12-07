@@ -34,6 +34,8 @@ const Button: FunctionComponent<ButtonProps> = ({
   return (
     <button
       type="button"
+      role="button"
+      data-cy="click"
       className={[styles.btn, styles[`btn--${size}`], mode].join(' ')}
       {...props}
     >
