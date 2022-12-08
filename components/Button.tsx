@@ -3,7 +3,7 @@ import styles from './Button.module.scss'
 
 interface ButtonProps {
   /**
-   * Is this the principal call to action on the page?
+   * Optional css setter
    * 
    * true = purple | false = orange.
    */
@@ -11,7 +11,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'sm' | 'base' | 'lg' | 'xl';
   /**
    * Button contents
    */
@@ -23,20 +23,20 @@ interface ButtonProps {
 }
 
 /**
- * Primary UI component for user interaction
+ * Button component for user interaction
  */
 const Button: FunctionComponent<ButtonProps> = ({ 
   primary,
   size,
   label,
   ...props }) => {
-  const mode = primary ? styles['btn--primary'] : styles['btn--secondary'];
+  const mode = primary ? "bg-primary-purple hover:bg-primary-orange" : "bg-primary-orange hover:bg-primary-purple";
   return (
     <button
       type="button"
       role="button"
       data-cy="click"
-      className={[styles.btn, styles[`btn--${size}`], mode].join(' ')}
+      className={`btn px-28 h-20 text-white font-semibold text-${size} uppercase ${mode}`}
       {...props}
     >
       {label}

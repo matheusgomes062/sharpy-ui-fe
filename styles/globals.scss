@@ -2,75 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./_tokens-css.scss";
 
 @import 'https://fonts.googleapis.com/css2?family=Saira&display=swap';
 
 *,
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: 'Saira', sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  font-size: 66px;
-  font-weight: medium;
-}
-
-h2 {
-  font-size: 48px;
-  font-weight: medium;
-}
-
-h3 {
-  font-size: 36px;
-  font-weight: medium;
-}
-
-h4 {
-  font-size: 30px;
-  font-weight: medium;
-}
-
-text, p, span {
-  font-size: 26px;
-  font-weight: medium;
-}
-
-h1, h2, h3, h4, text, p, span {
-  &--bold {
-    font-weight: bold;
-    font-size: 26px;
-  }
-
-  &--small {
-    font-weight: medium;
-    font-size: 24px;
-  }
-
-  &--xsmall {
-    font-weight: medium;
-    font-size: 21px;
-  }
-
-  &--xxsmall {
-    font-weight: medium;
-    font-size: 18px;
-  }
-
-  &--xxxsmall {
-    font-weight: medium;
-    font-size: 20px;
-  }
 }
