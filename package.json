@@ -12,10 +12,12 @@
     "e2e": "start-server-and-test start http://localhost:3000 cypress",
     "e2e:headless": "start-server-and-test start http://localhost:3000 cypress:headless",
     "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "tw:build": "npx tailwindcss -i ./styles/input.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "@next/font": "^13.0.6",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/preset-typescript": "^3.0.0",
     "@types/node": "18.11.10",
