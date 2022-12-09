@@ -6,7 +6,7 @@ interface InputProps {
    */
   placeholder: string;
   /**
-   * Type Placeholder
+   * Input type
    */
   type: string;
   /**
