@@ -18,11 +18,13 @@ const CheckBox: FunctionComponent<CheckBoxProps> = ({ value, ...props }) => {
     setIsSelected(!isSelected);
   };
 
-  const borderStyleOnChange = isSelected ? "border-primary-purple" : "border-primary-purple outline-primary-purple outline";
-  const spanStyleOnChange = isSelected ? "opacity-0" : "opacity-100";
+  const borderStyleOnChange = isSelected ? "border-primary-purple outline-primary-purple outline" : "border-primary-purple";
+  const spanStyleOnChange = isSelected ? "opacity-100" : "opacity-0";
 
   return (
-    <label className={
+    <label
+      data-cy="checkbox"
+      className={
       `flex cursor-pointer items-center h-8 w-8 border-2 
       ${borderStyleOnChange} 
       hover:border-primary-orange hover:outline-primary-orange hover:outline`
@@ -30,7 +32,6 @@ const CheckBox: FunctionComponent<CheckBoxProps> = ({ value, ...props }) => {
       <input
         type="checkbox"
         role="checkbox"
-        data-cy="input"
         className="cursor-pointer appearance-none"
         onChange={handleChange}
         value={value}
