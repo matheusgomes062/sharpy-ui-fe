@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
 import SmartLink from './SmartLink';
+import SectionTitle from './SectionTitle';
 
 interface ContactUsProps {
   /**
@@ -19,7 +20,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = ({ type, ...props }) => {
 
   return (
     <div>
-      {/* <SectionTitle title="Fale Conosco" description="Formas de entrar em contato consco"/> */}
+      <SectionTitle title="Fale Conosco" description="Formas de entrar em contato consco"/>
       <div>
         <SmartLink label={'contato@sharpy.com'} type={'email'} icon={'email'}/>
         <SmartLink label={'+55 21 1111 1111'} type={'phone'} icon={'phone'}/>
