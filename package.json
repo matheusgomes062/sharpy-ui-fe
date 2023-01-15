@@ -16,6 +16,7 @@
     "tw:build": "npx tailwindcss -i ./styles/input.css -o ./dist/output.css --watch"
   },
   "dependencies": {
+    "@material-design-icons/font": "^0.14.2",
     "@next/font": "^13.0.6",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/preset-scss": "^1.0.3",
