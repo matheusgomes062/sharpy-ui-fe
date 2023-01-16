@@ -18,20 +18,24 @@ interface LinkProps {
    * Icon name
    */
   icon: string;
+  /**
+   * Has underline
+   */
+  underline?: boolean;
 }
 
 /**
  * Link component for user interaction
  */
-const SmartLink: FunctionComponent<LinkProps> = ({ label, type, icon, ...props }) => {
+const SmartLink: FunctionComponent<LinkProps> = ({ label, type, icon, underline, ...props }) => {
   return (
-    <div className='d-flex flex-row w-100'>
+    <div className='flex flex-row w-100'>
       {
         icon && 
         <span className={`material-icons-outlined absolute text-center text-primary-orange`}>{icon}</span>
       }
       <Link href="/" role="link" data-cy="link" {...props}
-      className={`underline underline-offset-6 text-black hover:text-primary-orange active:text-primary-purple ${icon ? 'ml-9' : ''}`}>
+      className={`text-black hover:text-primary-orange active:text-primary-purple ${icon ? 'ml-9' : ''} ${underline ? 'underline underline-offset-6': ''}`}>
         {label}
       </Link>
     </div>
