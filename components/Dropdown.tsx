@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState, useEffect, useRef } from 'react'
 import useOutsideClick from '../hooks/useOutsideClick';
-import '@material-design-icons/font';
+import Icon from '@mdi/react';
+import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
 
 
 interface DropDownProps {
@@ -14,9 +15,11 @@ interface DropDownProps {
   options: string[];
 }
 
-function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }) {
+function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
   return (
-    <div className="
+    <div
+      
+      className="
       mt-4
       w-96
       border-solid border-2 border-primary-purple
@@ -42,34 +45,44 @@ function dropDownOptions(options: string[] | undefined, handleValue: { (value: s
 const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...props }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [value, setValue] = useState('');
+  const [iconColor, setIconColor] = useState('black');
 
-  const dropDownIcon = showDropdown ?  "expand_less" : "expand_more"
+  const dropDownIcon = showDropdown ? mdiChevronUp : mdiChevronDown;
 
   const ref = useRef(null);
 
   const handleValue = (value: string) => {
-    setValue(value)
+    setValue(value);
     setShowDropdown(!showDropdown);
+    changeIconColorToBlack();
   }
 
-  const handleClick = () => setShowDropdown(!showDropdown)
+  const handleClick = () => setShowDropdown(!showDropdown);
   
-  const optionTextColor = (option: string) => option == value ? "text-primary-orange" : "text-primary-purple"
+  const optionTextColor = (option: string) => option == value ? "text-primary-orange" : "text-primary-purple";
+
+  const changeIconColorToBlack = () => setIconColor("black");
+
+  const changeIconColorToOrange = () => setIconColor("#FF4800");
+
+  const changIconToBlackWhenMouseOut = () => !showDropdown && changeIconColorToBlack();
 
   useEffect(() => {
     !placeholder && setValue(options[0]);
   }, [options, placeholder])
   
   useOutsideClick(ref, () => {
-    showDropdown && setShowDropdown(!showDropdown);
+    showDropdown && handleClick();
+    changeIconColorToBlack();
   });
 
   return (
-    <div className="w-96 h-12" ref={ref} data-cy="dropdown">
+    <div className="w-96 h-auto" data-cy="dropdown" ref={ref}>
       <div
+        onMouseOver={changeIconColorToOrange}
+        onMouseOut={changIconToBlackWhenMouseOut}
         onClick={handleClick}
         className="
-          group
           w-96 h-12
           border-solid border-2 border-primary-purple p-2
           focus:border-primary-orange focus:outline-primary-orange
@@ -80,12 +93,12 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
         <div className="w-full flex justify-between px-2">
           { placeholder && !value ? <p>{placeholder}</p> : <p data-cy="selected-value">{value}</p>} 
           <div>
-            <span className="material-icons-outlined text-center text-primary-orange group-hover:text-primary-purple">{dropDownIcon}</span>
+            <Icon path={dropDownIcon} color={iconColor} size={1}/>
           </div>
         </div>
       </div>
       {
-        showDropdown && dropDownOptions(options, handleValue, optionTextColor)
+        showDropdown && dropDownOptions(options, handleValue, optionTextColor, ref)
       }
     </div>
   )
