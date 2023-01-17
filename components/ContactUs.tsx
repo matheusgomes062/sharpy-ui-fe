@@ -20,7 +20,7 @@ const ContactUs: FunctionComponent<ContactUsProps> = ({ type, ...props }) => {
 
   return (
     <div className='w-full flex justify-center h-[480px] bg-primary-gray bg-opacity-30'>
-      <div className='flex flex-col justify-center'>
+      <div className='flex flex-col justify-center'> test
         <SectionTitle title="Fale Conosco" description="Formas de entrar em contato consco"/>
         <div className='flex flex-row [&>*]:mr-14'>
           <SmartLink label={'contato@sharpy.com'} type={'email'} icon={'email'}/>
