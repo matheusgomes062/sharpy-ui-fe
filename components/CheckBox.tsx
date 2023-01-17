@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from 'react'
-import '@material-design-icons/font';
+import Icon from '@mdi/react';
+import { mdiCheck } from '@mdi/js';
 
 interface CheckBoxProps {
     /**
@@ -37,7 +38,7 @@ const CheckBox: FunctionComponent<CheckBoxProps> = ({ value, ...props }) => {
         value={value}
         {...props}
       />
-      <span className={`material-icons-outlined absolute text-center ${spanStyleOnChange}`}>check</span>
+      <Icon path={mdiCheck} className={`${spanStyleOnChange} mx-auto`} size={1}/>
     </label>
   )
 }
