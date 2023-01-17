@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { FunctionComponent } from 'react'
 
 interface SectionTitleProps {
@@ -18,12 +19,13 @@ const SectionTitle: FunctionComponent<SectionTitleProps> = ({ title, description
   return (
     <div className='flex flex-col mb-14'>
         <div className='flex flex-row w-100 mb-6'>
-            <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span>
+            {/* <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span> */}
+            <img src='/logo.svg' alt='next' />
             <h2 className='ml-10 font-medium text-2xl'>
                 {title}
             </h2>
         </div>
-        <span>
+        <span className='text-base'>
             {description}
         </span>
     </div>
