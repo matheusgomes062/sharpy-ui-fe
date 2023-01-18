@@ -17,29 +17,24 @@ interface DropDownProps {
 
 function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
   return (
-    <div
-      
-      className="
-      mt-4
-      w-96
-      border-solid border-2 border-primary-purple
-      dropdown-options"
-    >
+    <div className="z-10 mt-4 overflow-auto border-2 border-solid max-h-80 w-96 border-primary-purple dropdown-options">
       <ul className="px-5 pt-8">
         {options?.map((value, index) => {
-          return <li
-            data-cy={`dropdown-option-${index}`}
-            className={`pb-8 cursor-pointer ${optionTextColor(value)}
+          return (
+            <li
+              data-cy={`dropdown-option-${index}`}
+              className={`pb-8 cursor-pointer ${optionTextColor(value)}
             hover:text-primary-orange`}
-            key={index}
-            onClick={ () => handleValue(value)}
-          >
-            {value}
-          </li>
+              key={index}
+              onClick={() => handleValue(value)}
+            >
+              {value}
+            </li>
+          );
         })}
       </ul>
     </div>
-  )
+  );
 }
 
 const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...props }) => {
@@ -77,20 +72,14 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
   });
 
   return (
-    <div className="w-96 h-auto" data-cy="dropdown" ref={ref}>
+    <div className="h-auto w-96" data-cy="dropdown" ref={ref}>
       <div
         onMouseOver={changeIconColorToOrange}
         onMouseOut={changIconToBlackWhenMouseOut}
         onClick={handleClick}
-        className="
-          w-96 h-12
-          border-solid border-2 border-primary-purple p-2
-          focus:border-primary-orange focus:outline-primary-orange
-          focus:outline
-          cursor-pointer
-          hover:border-primary-orange hover:outline-primary-orange hover:outline"
+        className="h-12 p-2 border-2 border-solid cursor-pointer w-96 border-primary-purple focus:border-primary-orange focus:outline-primary-orange focus:outline hover:border-primary-orange hover:outline-primary-orange hover:outline"
       >
-        <div className="w-full flex justify-between px-2">
+        <div className="flex justify-between w-full px-2">
           { placeholder && !value ? <p>{placeholder}</p> : <p data-cy="selected-value">{value}</p>} 
           <div>
             <Icon path={dropDownIcon} color={iconColor} size={1}/>
