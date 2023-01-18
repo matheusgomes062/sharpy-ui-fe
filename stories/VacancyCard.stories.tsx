@@ -1,21 +1,22 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import VacancyCard from '../components/VacancyCard';
+import JobOpportunityCard from "../components/JobOpportunityCard";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'General/VacancyCard',
-  component: VacancyCard,
-} as ComponentMeta<typeof VacancyCard>;
+  title: "General/JobOpportunityCard",
+  component: JobOpportunityCard,
+} as ComponentMeta<typeof JobOpportunityCard>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof VacancyCard> = (args) => <VacancyCard {...args} />;
+const Template: ComponentStory<typeof JobOpportunityCard> = (args) => <JobOpportunityCard {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  title: 'Analista de dados',
+  // title: 'Analista de dados',
+  title: 'Desenvolvedor(a) de aplicações FullStack',
   country: 'Brasil',
   modality: 'Remoto'
 };
