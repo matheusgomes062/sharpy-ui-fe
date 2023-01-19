@@ -17,7 +17,7 @@ interface DropDownProps {
 
 function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
   return (
-    <div className="z-10 mt-4 overflow-auto border-2 border-solid max-h-80 w-96 border-primary-purple dropdown-options">
+    <div className="absolute mt-4 overflow-auto bg-white border-2 w-80 border-solid max-h-80 border-primary-purple sm:max-md:w-full">
       <ul className="px-5 pt-8">
         {options?.map((value, index) => {
           return (
@@ -39,8 +39,8 @@ function dropDownOptions(options: string[] | undefined, handleValue: { (value: s
 
 const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...props }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+
   const [value, setValue] = useState('');
-  const [iconColor, setIconColor] = useState('black');
 
   const dropDownIcon = showDropdown ? mdiChevronUp : mdiChevronDown;
 
@@ -49,18 +49,11 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
   const handleValue = (value: string) => {
     setValue(value);
     setShowDropdown(!showDropdown);
-    changeIconColorToBlack();
   }
 
   const handleClick = () => setShowDropdown(!showDropdown);
   
   const optionTextColor = (option: string) => option == value ? "text-primary-orange" : "text-primary-purple";
-
-  const changeIconColorToBlack = () => setIconColor("black");
-
-  const changeIconColorToOrange = () => setIconColor("#FF4800");
-
-  const changIconToBlackWhenMouseOut = () => !showDropdown && changeIconColorToBlack();
 
   useEffect(() => {
     !placeholder && setValue(options[0]);
@@ -68,29 +61,35 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
   
   useOutsideClick(ref, () => {
     showDropdown && handleClick();
-    changeIconColorToBlack();
   });
 
   return (
-    <div className="h-auto w-96" data-cy="dropdown" ref={ref}>
+    <div className="h-auto sm:max-md:w-full" data-cy="dropdown" ref={ref}>
       <div
-        onMouseOver={changeIconColorToOrange}
-        onMouseOut={changIconToBlackWhenMouseOut}
         onClick={handleClick}
-        className="h-12 p-2 border-2 border-solid cursor-pointer w-96 border-primary-purple focus:border-primary-orange focus:outline-primary-orange focus:outline hover:border-primary-orange hover:outline-primary-orange hover:outline"
+        className="h-12 p-2 border-2 border-solid cursor-pointer max-h-12 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
+        {...props}
       >
-        <div className="flex justify-between w-full px-2">
-          { placeholder && !value ? <p>{placeholder}</p> : <p data-cy="selected-value">{value}</p>} 
-          <div>
-            <Icon path={dropDownIcon} color={iconColor} size={1}/>
-          </div>
+        <div className="flex items-center justify-between w-full px-2">
+          {placeholder && !value ? (
+            <p>{placeholder}</p>
+          ) : (
+            <p data-cy="selected-value" className="truncate">{value}</p>
+          )}
+          <Icon
+            path={dropDownIcon}
+            size={1}
+            color="disabled"
+            className="fill-primary-orange group-hover:fill-primary-purple"
+          />
         </div>
       </div>
-      {
-        showDropdown && dropDownOptions(options, handleValue, optionTextColor, ref)
-      }
+      <div className="relative sm:max-md:w-full">
+        {showDropdown &&
+          dropDownOptions(options, handleValue, optionTextColor, ref)}
+      </div>
     </div>
-  )
+  );
 }
 
 export default DropDown;
