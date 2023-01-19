@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent } from 'react';
 import Icon from '@mdi/react';
 import { mdiMapMarkerOutline, mdiArrowRight  } from '@mdi/js';
 
@@ -20,34 +20,23 @@ interface JobOpportunityCardProps {
 const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
   vacancyCardProps
 ) => {
-  const primaryOrange = "#FF4800";
-
-  const primaryPurple = "#660066";
-
-  const [iconColor, setIconColor] = useState(primaryOrange);
-
-  const changeIconColorToOrange = () => setIconColor(primaryOrange);
-
-  const changeIconColorToPurple = () => setIconColor(primaryPurple);
-
   const goToVacancyPage = () => {
     //TODO: When Jobs page is built finish this function. Should redirect to Jobs page
   };
 
   return (
     <div
-      className="flex p-4 mt-4 mr-4 border-2 border-solid cursor-pointer h-36 w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
-      onMouseOver={changeIconColorToPurple}
-      onMouseOut={changeIconColorToOrange}
+      className="flex p-4 mt-4 mr-4 border-2 border-solid cursor-pointer sm:max-md:w-full sm:max-md:mr-0 group h-36 w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
       onClick={goToVacancyPage}
+      data-cy="jobOpportunityCard"
     >
       <div className="flex flex-col w-full space-y-5">
         <div className="flex">
           <Icon
             path={mdiMapMarkerOutline}
             size={1}
-            color={primaryOrange}
-            className="pr-1"
+            color="disabled"
+            className="pr-1 fill-primary-orange"
           />
           <p>
             {vacancyCardProps.modality}, {vacancyCardProps.country}
@@ -56,7 +45,12 @@ const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
         <p className="text-lg font-bold">{vacancyCardProps.title}</p>
       </div>
       <div className="grid place-items-end">
-        <Icon path={mdiArrowRight} size={1} color={iconColor} />
+        <Icon
+          path={mdiArrowRight}
+          size={1}
+          color="disabled"
+          className="fill-primary-orange group-hover:fill-primary-purple"
+        />
       </div>
     </div>
   );
