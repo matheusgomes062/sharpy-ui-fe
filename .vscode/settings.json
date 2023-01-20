@@ -1,3 +1,9 @@
 {
-  "i18n-ally.localesPaths": ["locales"]
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "cSpell.words": [
+    "Conosco",
+    "Desenvolvedor"
+  ]
 }
