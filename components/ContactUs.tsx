@@ -5,10 +5,6 @@ import { mdiEmailOutline, mdiPhone, mdiMapMarkerOutline } from '@mdi/js';
 
 interface ContactUsProps {
   /**
-   * Click handler
-   */
-  onChange?: () => void;
-  /**
    * Title for Section title
    */
   title: string;
@@ -25,7 +21,7 @@ interface ContactUsProps {
    */
   phone: string;
   /**
-   * Phone for Contact us link
+   * Address for Contact us link
    */
   address: string;
 }

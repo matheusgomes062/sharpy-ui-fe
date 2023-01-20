@@ -16,7 +16,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   title: 'Fale Conosco',
-  description: 'Formas de entrar em contato consco',
+  description: 'Formas de entrar em contato conosco',
   email: 'teste@sharpy.com',
   phone: '+55 11 9876-5555',
   address: 'Rua Foz de São José, 99, BR'
