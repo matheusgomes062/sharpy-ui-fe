@@ -27,10 +27,10 @@ interface LinkProps {
    * Has underline
    */
   underline?: boolean;
-  /**
-   * Add font size as such: text-sm or text-md and others.
-   */
-  fontSize?: 'xxxs' | 'xxs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl';
+  // /**
+  //  * Add font size as such: text-sm or text-md and others.
+  //  */
+  // fontSize?: 'xxxs' | 'xxs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | 'mobxxs' | 'mobxs' | 'mobsm' | 'mobbase' | 'mobh4' | 'mobh3' | 'mobh2';
   /**
    * Add font size as such: text-sm or font-md and others
    */
@@ -40,7 +40,7 @@ interface LinkProps {
 /**
  * Link component for user interaction
  */
-const SmartLink: FunctionComponent<LinkProps> = ({ label, type, icon, underline, fontSize, iconSize, href, ...props }) => {
+const SmartLink: FunctionComponent<LinkProps> = ({ label, icon, underline, iconSize, href }) => {
   return (
     <div className='flex flex-row w-100 items-center'>
       {
@@ -48,20 +48,10 @@ const SmartLink: FunctionComponent<LinkProps> = ({ label, type, icon, underline,
         // <span className={`material-icons-outlined absolute text-center text-primary-orange`}>{icon}</span>
         <Icon path={icon} className={`material-icons-outlined text-primary-orange`} size={iconSize}/>
       }
-      {
-        type === 'text' &&
-        <Link href={href} role="link" data-cy="link" {...props}
-        className={`text-black hover:text-primary-orange active:text-primary-purple ${icon ? 'ml-3' : ''} ${underline ? 'underline underline-offset-6': ''} ${fontSize ? 'text-' + fontSize : ''}`}>
-          {label}
-        </Link>
-      }
-      {
-        type !== 'text' &&
-        <a href={href} role="link" data-cy="link" {...props}
-        className={`text-black hover:text-primary-orange active:text-primary-purple ${icon ? 'ml-3' : ''} ${underline ? 'underline underline-offset-6': ''} ${fontSize ? 'text-' + fontSize : ''}`}>
-          {label}
-        </a>
-      }
+      <a href={href} role="link" data-cy="link"
+      className={`text-black hover:text-primary-orange active:text-primary-purple ${icon ? 'ml-3' : ''} ${underline ? 'underline underline-offset-6': ''} max-w-[250px]`}>
+        {label}
+      </a>
     </div>
   )
 }

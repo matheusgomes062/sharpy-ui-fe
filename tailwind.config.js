@@ -18,6 +18,13 @@ module.exports = {
       'primary-purple': '#660066',
     },
     fontSize: {
+      mobh2: ['24px', '38px'],
+      mobh3: ['21px', '33px'],
+      mobh4: ['19px', '30px'],
+      mobbase: ['18px', '28px'],
+      mobsm: ['16px', '25px'],
+      mobxs: ['15px', '23px'],
+      mobxxs: ['14px', '22px'],
       xxxs: ['20px', '31px'],     // Estranho esse valor no menor
       xxs: ['18px', '28px'],
       xs: ['21px', '33px'],
