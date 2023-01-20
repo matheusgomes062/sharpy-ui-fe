@@ -13,15 +13,27 @@ module.exports = {
       current: 'currentColor',
       white: "#FFF",
       black: "#000",
-      'primary-grey': '#E5E5E5',
+      'primary-gray': '#E5E5E5',
       'primary-orange': '#FF4800',
       'primary-purple': '#660066',
     },
     fontSize: {
-      sm: ['14px', '20px'],
-      base: ['16px', '24px'],
-      lg: ['20px', '28px'],
-      xl: ['24px', '32px'],
+      mobh2: ['24px', '38px'],
+      mobh3: ['21px', '33px'],
+      mobh4: ['19px', '30px'],
+      mobbase: ['18px', '28px'],
+      mobsm: ['16px', '25px'],
+      mobxs: ['15px', '23px'],
+      mobxxs: ['14px', '22px'],
+      xxxs: ['20px', '31px'],     // Estranho esse valor no menor
+      xxs: ['18px', '28px'],
+      xs: ['21px', '33px'],
+      sm: ['24px', '38px'],
+      base: ['26px', '40px'],
+      lg: ['30px', '47px'],       // h4
+      xl: ['36px', '56px'],       // h3
+      '2xl': ['48px', '75px'],    // h2
+      '3xl': ['66px', '103px']    // h1
     },
     screens: {
       sm: '320px',
