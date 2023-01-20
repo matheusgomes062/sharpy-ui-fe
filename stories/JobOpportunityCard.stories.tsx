@@ -5,7 +5,7 @@ import JobOpportunityCard from "../components/JobOpportunityCard";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "General/JobOpportunityCard",
+  title: "Cards/JobOpportunityCard",
   component: JobOpportunityCard,
 } as ComponentMeta<typeof JobOpportunityCard>;
 

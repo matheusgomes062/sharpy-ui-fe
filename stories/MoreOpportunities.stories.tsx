@@ -5,7 +5,7 @@ import MoreOpportunities from '../components/MoreOpportunities';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'General/MoreOpportunities',
+  title: 'Jobs/MoreOpportunities',
   component: MoreOpportunities,
 } as ComponentMeta<typeof MoreOpportunities>;
 
