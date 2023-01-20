@@ -13,3 +13,11 @@ export default {
 const Template: ComponentStory<typeof ContactUs> = (args) => <ContactUs {...args} />;
 
 export const Primary = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+Primary.args = {
+  title: 'Fale Conosco',
+  description: 'Formas de entrar em contato consco',
+  email: 'teste@sharpy.com',
+  phone: '+55 11 9876-5555',
+  address: 'Rua Foz de São José, 99, BR'
+};

@@ -27,10 +27,6 @@ interface LinkProps {
    * Has underline
    */
   underline?: boolean;
-  // /**
-  //  * Add font size as such: text-sm or text-md and others.
-  //  */
-  // fontSize?: 'xxxs' | 'xxs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | 'mobxxs' | 'mobxs' | 'mobsm' | 'mobbase' | 'mobh4' | 'mobh3' | 'mobh2';
   /**
    * Add font size as such: text-sm or font-md and others
    */
