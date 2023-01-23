@@ -48,7 +48,7 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (solutionsCardProps
           <Button
             primary={true}
             label="Saiba mais"
-            size="base"
+            size="sm"
             onClick={goToSolutionPage}
           />
         </div>

@@ -16,7 +16,7 @@ const MoreOpportunities: FunctionComponent = ({ ...props }) => {
           <JobOpportunityCard key={vacancy.title} {...vacancy} />
         ))}
       </div>
-      <Button primary={true} label={"Ver Mais"} size="sm" />
+      <Button primary={true} label={"Ver Mais"} size="base" />
       <div className="flex flex-wrap mt-10">
         <Input placeholder="Buscar Oportunidade" type="text" icon="magnify" />
         <div className="sm:max-md:mt-4 sm:max-md:ml-0 md:max-4k:ml-4 sm:max-md:w-full">
