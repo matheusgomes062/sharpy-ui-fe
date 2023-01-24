@@ -61,7 +61,7 @@ const Input: FunctionComponent<InputProps> = ({ placeholder, type, icon, ...prop
           placeholder={placeholder}
           onChange={handleChange}
           value={value}
-          className={`w-full appearance-none outline-0 ${shouldOpacityBeZero()}`}
+          className={`w-full appearance-none md:placeholder:text-xs placeholder:text-mobsm outline-0 ${shouldOpacityBeZero()}`}
         />
         <Icon
           path={Icons[icon]}

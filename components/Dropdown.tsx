@@ -17,7 +17,7 @@ interface DropDownProps {
 
 function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
   return (
-    <div className="absolute mt-4 overflow-auto bg-white border-2 w-80 border-solid max-h-80 border-primary-purple sm:max-md:w-full">
+    <div className="absolute mt-4 overflow-auto bg-white border-2 border-solid w-80 max-h-80 border-primary-purple sm:max-md:w-full">
       <ul className="px-5 pt-8">
         {options?.map((value, index) => {
           return (
@@ -67,14 +67,19 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
     <div className="h-auto sm:max-md:w-full" data-cy="dropdown" ref={ref}>
       <div
         onClick={handleClick}
-        className="h-12 p-2 border-2 border-solid cursor-pointer max-h-12 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
+        className="flex h-12 p-2 border-2 border-solid cursor-pointer max-h-12 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
         {...props}
       >
         <div className="flex items-center justify-between w-full px-2">
           {placeholder && !value ? (
-            <p>{placeholder}</p>
+            <p className="md:text-xs text-mobsm">{placeholder}</p>
           ) : (
-            <p data-cy="selected-value" className="truncate">{value}</p>
+            <p
+              data-cy="selected-value"
+              className="truncate md:text-xs text-mobsm"
+            >
+              {value}
+            </p>
           )}
           <Icon
             path={dropDownIcon}
