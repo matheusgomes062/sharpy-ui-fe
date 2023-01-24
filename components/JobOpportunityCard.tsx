@@ -26,7 +26,7 @@ const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
 
   return (
     <div
-      className="flex p-4 mt-4 mr-4 border-2 border-solid cursor-pointer sm:max-md:w-full sm:max-md:mr-0 group h-36 w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
+      className="flex h-auto p-4 mt-4 mr-4 border-2 border-solid cursor-pointer max-h-44 sm:max-md:w-full sm:max-md:mr-0 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
       onClick={goToVacancyPage}
       data-cy="jobOpportunityCard"
     >
@@ -42,7 +42,7 @@ const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
             {vacancyCardProps.modality}, {vacancyCardProps.country}
           </p>
         </div>
-        <p className="text-lg font-bold">{vacancyCardProps.title}</p>
+        <p className="text-lg font-bold md:text-base text-mobh3">{vacancyCardProps.title}</p>
       </div>
       <div className="grid place-items-end">
         <Icon
