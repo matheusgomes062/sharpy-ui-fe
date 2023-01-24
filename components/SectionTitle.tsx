@@ -1,24 +1,11 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
+import ISectionTitleProps from "types/SectionTitleProps";
 
-interface SectionTitleProps {
-  /**
-   * Title for the Section
-   */
-  title: string;
-  /**
-   * Description for the title
-   */
-  description: string;
-  /**
-   * Choose the mode to display
-   */
-  mode: 'light' | 'dark';
-}
 
 /**
  * Link component for user interaction
  */
-const SectionTitle: FunctionComponent<SectionTitleProps> = ({ ...SectionTitleProps }) => {
+const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...SectionTitleProps }) => {
 
   const [mode, setMode] = useState<{color: string, svg: string}>({color: "", svg: ""});
 

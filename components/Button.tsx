@@ -1,44 +1,25 @@
 import React, { FunctionComponent } from 'react'
-import styles from './Button.module.scss'
-
-interface ButtonProps {
-  /**
-   * Optional css setter
-   * 
-   * true = purple | false = orange.
-   */
-  primary?: boolean;
-  /**
-   * How large should the button be?
-   */
-  size: 'sm' | 'base' | 'lg' | 'xl';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
+import IButtonProps from 'types/ButtonProps';
 
 /**
  * Button component for user interaction
  */
-const Button: FunctionComponent<ButtonProps> = ({
+const Button: FunctionComponent<IButtonProps> = ({
   primary,
   size,
   label,
-  ...props }) => {
-  
-  const mode = primary ? "bg-primary-purple hover:bg-primary-orange" : "bg-primary-orange hover:bg-primary-purple";
+  ...props
+}) => {
+  const mode = primary
+    ? "bg-primary-purple hover:bg-primary-orange"
+    : "bg-primary-orange hover:bg-primary-purple";
 
   const buttonPadding = {
-    "sm": "px-10",
-    "base": "px-24",
-    "lg": "px-36",
-    "xl":  "px-48",
-  }
+    sm: "px-10",
+    base: "px-24",
+    lg: "px-36",
+    xl: "px-48",
+  };
 
   return (
     <button
@@ -51,6 +32,6 @@ const Button: FunctionComponent<ButtonProps> = ({
       {label}
     </button>
   );
-}
+};
 
 export default Button;

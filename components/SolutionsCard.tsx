@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import Icon from "@mdi/react";
 import Button from "./Button";
-import SolutionsCardProps from "../types/SolutionsCardProps"
+import ISolutionsCardProps from "../types/SolutionsCardProps";
 import { mdiCellphoneLink, mdiApplicationBracketsOutline, mdiMonitorScreenshot } from "@mdi/js";
 
 const icon = {
@@ -10,7 +10,7 @@ const icon = {
   "Screenshot": mdiMonitorScreenshot
 };
 
-const SolutionsCard: FunctionComponent<SolutionsCardProps> = (solutionsCardProps) => {
+const SolutionsCard: FunctionComponent<ISolutionsCardProps> = (solutionsCardProps) => {
   const [borderStyle, setBorderStyle] = useState('border-primary-purple');
 
   const changeBorderStyle = (style: string) => setBorderStyle(style);

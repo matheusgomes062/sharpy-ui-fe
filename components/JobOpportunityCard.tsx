@@ -1,23 +1,9 @@
 import { FunctionComponent } from 'react';
 import Icon from '@mdi/react';
 import { mdiMapMarkerOutline, mdiArrowRight  } from '@mdi/js';
+import IJobOpportunityCardProps from 'types/JobOpportunityCardProps';
 
-interface JobOpportunityCardProps {
-  /**
-   * Title of the vacancy
-   */
-  title: string;
-  /**
-   * Country of job
-   */
-  country: string;
-  /**
-   * Modality of job
-   */
-  modality: "Remoto" | "Presencial" | "Híbrido";
-}
-
-const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
+const JobOpportunityCard: FunctionComponent<IJobOpportunityCardProps> = (
   vacancyCardProps
 ) => {
   const goToVacancyPage = () => {
@@ -42,7 +28,9 @@ const JobOpportunityCard: FunctionComponent<JobOpportunityCardProps> = (
             {vacancyCardProps.modality}, {vacancyCardProps.country}
           </p>
         </div>
-        <p className="text-lg font-bold md:text-base text-mobh3">{vacancyCardProps.title}</p>
+        <p className="text-lg font-bold md:text-base text-mobh3">
+          {vacancyCardProps.title}
+        </p>
       </div>
       <div className="grid place-items-end">
         <Icon

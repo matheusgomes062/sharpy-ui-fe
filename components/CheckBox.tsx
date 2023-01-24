@@ -1,18 +1,12 @@
 import React, { FunctionComponent, useState } from 'react'
 import Icon from '@mdi/react';
 import { mdiCheck } from '@mdi/js';
-
-interface CheckBoxProps {
-    /**
-   * Value of the checkbox
-   */
-  value: string;
-}
+import ICheckBoxProps from 'types/CheckBoxProps';
 
 /**
  * CheckBox component for user interaction
  */
-const CheckBox: FunctionComponent<CheckBoxProps> = ({ value, ...props }) => {
+const CheckBox: FunctionComponent<ICheckBoxProps> = ({ value, ...props }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleChange = () => {
@@ -33,7 +27,7 @@ const CheckBox: FunctionComponent<CheckBoxProps> = ({ value, ...props }) => {
       <input
         type="checkbox"
         role="checkbox"
-        className="cursor-pointer appearance-none"
+        className="appearance-none cursor-pointer"
         onChange={handleChange}
         value={value}
         {...props}

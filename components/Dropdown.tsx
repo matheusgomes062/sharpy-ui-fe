@@ -2,18 +2,7 @@ import React, { FunctionComponent, useState, useEffect, useRef } from 'react'
 import useOutsideClick from '../hooks/useOutsideClick';
 import Icon from '@mdi/react';
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
-
-
-interface DropDownProps {
-    /**
-   * Placeholder of the dropdown
-   */
-  placeholder: string;
-    /**
-   * Options of the dropdown
-   */
-  options: string[];
-}
+import IDropDownProps from 'types/DropDownProps';
 
 function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
   return (
@@ -37,7 +26,7 @@ function dropDownOptions(options: string[] | undefined, handleValue: { (value: s
   );
 }
 
-const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...props }) => {
+const DropDown: FunctionComponent<IDropDownProps> = ({ placeholder, options, ...props }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const [value, setValue] = useState('');

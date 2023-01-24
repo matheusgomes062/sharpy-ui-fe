@@ -1,25 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import { mdiMagnify, mdiTrayArrowUp } from "@mdi/js";
 import Icon from "@mdi/react";
-
-interface InputProps {
-  /**
-   * Input Placeholder
-   */
-  placeholder: string;
-  /**
-   * Input type
-   */
-  type: 'text' | 'file';
-  /**
-   * Input type
-   */
-  icon: 'magnify' | 'trayArrowUp' | 'none';
-  /**
-   * Click handler
-   */
-  onChange?: () => void;
-}
+import IInputProps from 'types/InputProps';
 
 const Icons = {
   'magnify': mdiMagnify,
@@ -31,7 +13,7 @@ function show(text: string) {
   return <p className="fixed w-64 truncate opacity-40">{text}</p>;
 }
 
-const Input: FunctionComponent<InputProps> = ({ placeholder, type, icon, ...props }) => {
+const Input: FunctionComponent<IInputProps> = ({ placeholder, type, icon, ...props }) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value);

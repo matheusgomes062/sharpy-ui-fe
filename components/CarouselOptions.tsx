@@ -1,12 +1,7 @@
 import { FunctionComponent, Key } from "react";
+import ICarouselOptionsProps from "types/CarouselOptionsProps";
 
-interface CarouselOptionsProps {
-  allOptions: any[];
-  selectedOption: any;
-  handleCallback: Function;
-}
-
-const CarouselOptions: FunctionComponent<CarouselOptionsProps> = (props: any) => {
+const CarouselOptions: FunctionComponent<ICarouselOptionsProps> = (props: any) => {
 
   const colorElement = (option: any) => JSON.stringify(props.selectedOption) === JSON.stringify(option) ? "orange" : "gray";
 
