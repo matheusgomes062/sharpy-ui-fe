@@ -1,11 +1,11 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'General/Footer',
+  title: "Footer/Footer",
   component: Footer,
 } as ComponentMeta<typeof Footer>;
 
