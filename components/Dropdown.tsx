@@ -1,23 +1,20 @@
-import React, { FunctionComponent, useState, useEffect, useRef } from 'react'
-import useOutsideClick from '../hooks/useOutsideClick';
-import Icon from '@mdi/react';
-import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
+import React, { FunctionComponent, useState, useEffect, useRef } from "react";
+import useOutsideClick from "../hooks/useOutsideClick";
+import Icon from "@mdi/react";
+import { mdiChevronDown, mdiChevronUp } from "@mdi/js";
+import IDropDownProps from "types/DropDownProps";
 
-
-interface DropDownProps {
-    /**
-   * Placeholder of the dropdown
-   */
-  placeholder: string;
-    /**
-   * Options of the dropdown
-   */
-  options: string[];
-}
-
-function dropDownOptions(options: string[] | undefined, handleValue: { (value: string): void; (arg0: string): void; }, optionTextColor: { (option: string): "text-primary-orange" | "text-primary-purple"; (arg0: string): any; }, ref: React.LegacyRef<HTMLDivElement> | undefined) {
+function dropDownOptions(
+  options: string[] | undefined,
+  handleValue: { (value: string): void; (arg0: string): void },
+  optionTextColor: {
+    (option: string): "text-primary-orange" | "text-primary-purple";
+    (arg0: string): any;
+  },
+  ref: React.LegacyRef<HTMLDivElement> | undefined
+) {
   return (
-    <div className="absolute mt-4 overflow-auto bg-white border-2 w-80 border-solid max-h-80 border-primary-purple sm:max-md:w-full">
+    <div className="absolute mt-4 overflow-auto bg-white border-2 border-solid w-80 max-h-80 border-primary-purple sm:max-md:w-full">
       <ul className="px-5 pt-8">
         {options?.map((value, index) => {
           return (
@@ -37,10 +34,14 @@ function dropDownOptions(options: string[] | undefined, handleValue: { (value: s
   );
 }
 
-const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...props }) => {
+const DropDown: FunctionComponent<IDropDownProps> = ({
+  placeholder,
+  options,
+  ...props
+}) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const dropDownIcon = showDropdown ? mdiChevronUp : mdiChevronDown;
 
@@ -49,16 +50,17 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
   const handleValue = (value: string) => {
     setValue(value);
     setShowDropdown(!showDropdown);
-  }
+  };
 
   const handleClick = () => setShowDropdown(!showDropdown);
-  
-  const optionTextColor = (option: string) => option == value ? "text-primary-orange" : "text-primary-purple";
+
+  const optionTextColor = (option: string) =>
+    option == value ? "text-primary-orange" : "text-primary-purple";
 
   useEffect(() => {
     !placeholder && setValue(options[0]);
-  }, [options, placeholder])
-  
+  }, [options, placeholder]);
+
   useOutsideClick(ref, () => {
     showDropdown && handleClick();
   });
@@ -67,14 +69,19 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
     <div className="h-auto sm:max-md:w-full" data-cy="dropdown" ref={ref}>
       <div
         onClick={handleClick}
-        className="h-12 p-2 border-2 border-solid cursor-pointer max-h-12 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
+        className="flex h-12 p-2 border-2 border-solid cursor-pointer max-h-12 group w-80 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
         {...props}
       >
         <div className="flex items-center justify-between w-full px-2">
           {placeholder && !value ? (
-            <p>{placeholder}</p>
+            <p className="md:text-xs text-mobsm">{placeholder}</p>
           ) : (
-            <p data-cy="selected-value" className="truncate">{value}</p>
+            <p
+              data-cy="selected-value"
+              className="truncate md:text-xs text-mobsm"
+            >
+              {value}
+            </p>
           )}
           <Icon
             path={dropDownIcon}
@@ -90,6 +97,6 @@ const DropDown: FunctionComponent<DropDownProps> = ({ placeholder, options, ...p
       </div>
     </div>
   );
-}
+};
 
 export default DropDown;
