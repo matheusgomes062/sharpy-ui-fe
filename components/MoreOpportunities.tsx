@@ -5,12 +5,12 @@ import JobOpportunityCard from "./JobOpportunityCard";
 import Input from './Input'
 import Dropdown from './Dropdown'
 import countryList from '../mocks/Countries';
+import GenericTitle from './GenericTitle';
 
 const MoreOpportunities: FunctionComponent = ({ ...props }) => {
   return (
     <div className="relative max-w-6xl p-4 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12" {...props}>
-      <h1 className="text-lg font-bold">Mais Oportunidades</h1>
-      <div className="h-3 mt-4 w-14 bg-primary-orange" />
+      <GenericTitle title="Mais Oportunidades" fontStyle="text-lg font-bold"/>
       <div className="flex flex-wrap w-full mt-8 mb-10">
         {MockJobOpportunities.slice(0, 3).map((vacancy) => (
           <JobOpportunityCard key={vacancy.title} {...vacancy} />
