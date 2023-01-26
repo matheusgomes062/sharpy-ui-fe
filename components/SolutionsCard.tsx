@@ -4,7 +4,7 @@ import Button from "./Button";
 import SolutionsCardProps from "../types/SolutionsCardProps"
 import { mdiCellphoneLink, mdiApplicationBracketsOutline, mdiMonitorScreenshot } from "@mdi/js";
 
-const icon = {
+const icons = {
   "Devices": mdiCellphoneLink,
   "Integration": mdiApplicationBracketsOutline,
   "Screenshot": mdiMonitorScreenshot
@@ -26,7 +26,7 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (solutionsCardProps
     >
       <div className="flex flex-col justify-between w-full">
         <Icon
-          path={icon[solutionsCardProps.icon]}
+          path={icons[solutionsCardProps.icon]}
           size={3}
           color="disabled"
           className="fill-primary-orange"
