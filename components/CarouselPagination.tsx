@@ -1,12 +1,12 @@
 import { FunctionComponent, Key } from "react";
 
-interface CarouselOptionsProps {
+interface CarouselPaginationProps {
   allOptions: any[];
   selectedOption: any;
   handleCallback: Function;
 }
 
-const CarouselOptions: FunctionComponent<CarouselOptionsProps> = (props: any) => {
+const CarouselPagination: FunctionComponent<CarouselPaginationProps> = (props: any) => {
 
   const colorElement = (option: any) => JSON.stringify(props.selectedOption) === JSON.stringify(option) ? "orange" : "gray";
 
@@ -30,4 +30,4 @@ const CarouselOptions: FunctionComponent<CarouselOptionsProps> = (props: any) =>
   );
 };
 
-export default CarouselOptions;
+export default CarouselPagination;

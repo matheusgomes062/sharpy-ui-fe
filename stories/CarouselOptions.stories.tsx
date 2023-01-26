@@ -1,17 +1,17 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Solutions from "../data/Solutions";
-import CarouselOption from "../components/CarouselOptions";
+import CarouselPagination from "../components/CarouselPagination";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "General/CarouselOption",
-  component: CarouselOption,
-} as ComponentMeta<typeof CarouselOption>;
+  title: "General/CarouselPagination",
+  component: CarouselPagination,
+} as ComponentMeta<typeof CarouselPagination>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CarouselOption> = (args) => (
-  <CarouselOption {...args} />
+const Template: ComponentStory<typeof CarouselPagination> = (args) => (
+  <CarouselPagination {...args} />
 );
 
 export const Primary = Template.bind({});

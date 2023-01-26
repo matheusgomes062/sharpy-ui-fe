@@ -3,7 +3,7 @@ import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
 import Solutions from "../data/Solutions";
 import SolutionsCardProps from "../types/SolutionsCardProps";
-import CarouselOptions from "./CarouselOptions";
+import CarouselPagination from "./CarouselPagination";
 
 const SolutionsSection: FunctionComponent = ({ ...props }) => {
   const [selectedSolution, setSelectedSolution] = useState<SolutionsCardProps>(Solutions[0]);
@@ -35,7 +35,7 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
         <div className="flex justify-center mb-14 lg:hidden">
           <div className="flex-col w-full">
             <SolutionsCard {...selectedSolution} />
-            <CarouselOptions
+            <CarouselPagination
               allOptions={Solutions}
               selectedOption={selectedSolution}
               handleCallback={handleSelectedSolution}
