@@ -12,7 +12,6 @@ const CarouselOptions: FunctionComponent<CarouselOptionsProps> = (props: any) =>
 
 
   const emitSelectedOption = (option: any) => {
-    console.log(props);
     props.handleCallback(option);
   }
 
