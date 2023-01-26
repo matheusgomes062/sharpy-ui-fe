@@ -5,7 +5,7 @@ import SolutionsCard from "../components/SolutionsCard";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Cards/SolutionCard",
+  title: "Cards/SolutionsCard",
   component: SolutionsCard,
 } as ComponentMeta<typeof SolutionsCard>;
 
