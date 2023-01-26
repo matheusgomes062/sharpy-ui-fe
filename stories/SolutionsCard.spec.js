@@ -1,4 +1,4 @@
-describe("General / SolutionsCard", () => {
+describe("Cards / SolutionsCard", () => {
     it("Default", () => {
         cy.visit("/iframe.html?args=&id=general-solutionscard--primary")
         cy.get('[data-cy="solutionsCard"]').should('be.visible')
