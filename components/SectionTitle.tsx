@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect, useState } from "react";
 
 interface SectionTitleProps {
   /**
@@ -10,26 +9,37 @@ interface SectionTitleProps {
    * Description for the title
    */
   description: string;
+  /**
+   * Choose the mode to display
+   */
+  mode: 'light' | 'dark';
 }
 
 /**
  * Link component for user interaction
  */
-const SectionTitle: FunctionComponent<SectionTitleProps> = ({ title, description}) => {
+const SectionTitle: FunctionComponent<SectionTitleProps> = ({ ...SectionTitleProps }) => {
+
+  const [mode, setMode] = useState<{color: string, svg: string}>({color: "", svg: ""});
+
+  useEffect(() => {
+    SectionTitleProps.mode === "light" ? setMode({ color: "white", svg: "white-logo.svg" }) : setMode({ color: "black", svg: "dark-logo.svg" });
+  }, [SectionTitleProps.mode])
+
   return (
-    <div className='flex flex-col mb-14'>
-        <div className='flex flex-row w-100 mb-6'>
-            {/* <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span> */}
-            <img src='/logo.svg' alt='next' className='w-12'/>
-            <h2 className='ml-6 font-medium text-mobh2 md:text-2xl'>
-                {title}
-            </h2>
-        </div>
-        <span className='text-mobbase md:text-base'>
-            {description}
-        </span>
+    <div className="flex flex-col mb-14">
+      <div className="flex flex-row mb-6 w-100">
+        {/* <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span> */}
+        <img src={mode.svg} alt="next" className="w-12" />
+        <h2 className={`ml-6 font-medium text-mobh2 md:text-2xl text-${mode.color}`}>
+          {SectionTitleProps.title}
+        </h2>
+      </div>
+      <span className={`text-mobbase md:text-base text-${mode.color}`}>
+        {SectionTitleProps.description}
+      </span>
     </div>
-  )
+  );
 }
 
 export default SectionTitle;
