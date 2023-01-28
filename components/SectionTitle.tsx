@@ -19,7 +19,7 @@ const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...SectionTitlePr
         {/* <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span> */}
         <img src={mode.svg} alt="next" className="w-12" />
         <h2 className={`ml-6 font-medium text-mobh2 md:text-2xl text-${mode.color}`}>
-          {SectionTitleProps.title}
+          {SectionTitleProps.sectionTitle}
         </h2>
       </div>
       <span className={`text-mobbase md:text-base text-${mode.color}`}>
