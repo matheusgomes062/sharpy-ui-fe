@@ -1,40 +1,29 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, useState } from "react";
 import { mdiMagnify, mdiTrayArrowUp } from "@mdi/js";
 import Icon from "@mdi/react";
-
-interface InputProps {
-  /**
-   * Input Placeholder
-   */
-  placeholder: string;
-  /**
-   * Input type
-   */
-  type: 'text' | 'file';
-  /**
-   * Input type
-   */
-  icon: 'magnify' | 'trayArrowUp' | 'none';
-  /**
-   * Click handler
-   */
-  onChange?: () => void;
-}
+import IInputProps from "types/InputProps";
 
 const Icons = {
-  'magnify': mdiMagnify,
-  'trayArrowUp': mdiTrayArrowUp,
-  'none': ''
+  magnify: mdiMagnify,
+  trayArrowUp: mdiTrayArrowUp,
+  none: "",
 };
 
-function show(text: string) { 
+function show(text: string) {
   return <p className="fixed w-64 truncate opacity-40">{text}</p>;
 }
 
-const Input: FunctionComponent<InputProps> = ({ placeholder, type, icon, ...props }) => {
-  const [value, setValue] = useState('');
+const Input: FunctionComponent<IInputProps> = ({
+  placeholder,
+  type,
+  icon,
+  ...props
+}) => {
+  const [value, setValue] = useState("");
 
-  const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setValue(event.target.value);
+  const handleChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => setValue(event.target.value);
 
   const shouldOpacityBeZero = () => type === "file" && "opacity-0 max-h-6";
 
@@ -61,7 +50,7 @@ const Input: FunctionComponent<InputProps> = ({ placeholder, type, icon, ...prop
           placeholder={placeholder}
           onChange={handleChange}
           value={value}
-          className={`w-full appearance-none outline-0 ${shouldOpacityBeZero()}`}
+          className={`w-full appearance-none md:placeholder:text-xs placeholder:text-mobsm outline-0 ${shouldOpacityBeZero()}`}
         />
         <Icon
           path={Icons[icon]}
@@ -72,6 +61,6 @@ const Input: FunctionComponent<InputProps> = ({ placeholder, type, icon, ...prop
       </>
     </div>
   );
-}
+};
 
 export default Input;
