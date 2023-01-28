@@ -18,7 +18,7 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
       >
         <div className="mt-14">
           <SectionTitle
-            title="Soluções"
+            sectionTitle="Soluções"
             description="A Sharpy acredita que a tecnologia é uma ferramenta de melhoria contínua na vida e na rotina de pessoas e empresas."
             mode="light"
           />
