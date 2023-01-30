@@ -1,4 +1,4 @@
 import ISectionTitleProps from "./SectionTitleProps";
 import IButtonProps from "./ButtonProps";
 
-export default interface ICarrersProps extends ISectionTitleProps, IButtonProps {}
+export default interface ICareersProps extends ISectionTitleProps, IButtonProps {}

@@ -1,6 +1,6 @@
-describe("Carrers/Carrers", () => {
+describe("Careers/Careers", () => {
     it("Default", () => {
-      cy.visit("/iframe.html?args=&id=carrers-carrers")
-      cy.get('[data-cy="carrers"]').should('be.visible')
+      cy.visit("/iframe.html?args=&id=careers-careers")
+      cy.get('[data-cy="careers"]').should('be.visible')
     })
 })

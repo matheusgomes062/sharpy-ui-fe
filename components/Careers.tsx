@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import ICarrersProps from "types/CarrersProps";
+import ICareersProps from "types/CareersProps";
 import JobOpportunityCard from "./JobOpportunityCard";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
@@ -8,12 +8,12 @@ import MockJobOpportunities from "../mocks/JobOpportunities";
 /**
  * Button component for user interaction
  */
-const Carrers: FunctionComponent<ICarrersProps> = ({ ...props }) => {
+const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
   return (
     <div
       className="relative max-w-6xl p-4 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
       {...props}
-      data-cy="carrers"
+      data-cy="careers"
     >
       <SectionTitle
         sectionTitle={props.sectionTitle}
@@ -40,4 +40,4 @@ const Carrers: FunctionComponent<ICarrersProps> = ({ ...props }) => {
   );
 };
 
-export default Carrers;
+export default Careers;
