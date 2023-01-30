@@ -1,41 +1,28 @@
-interface JobOpportunityCardProps {
-  /**
-   * Title of the vacancy
-   */
-  title: string;
-  /**
-   * Country of job
-   */
-  country: string;
-  /**
-   * Modality of job
-   */
-  modality: 'Remoto' | 'Presencial' | 'Híbrido';
-}
+import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
 
-const MockJobOpportunities: JobOpportunityCardProps[] = [
+const MockJobOpportunities: IJobOpportunityCardProps[] = [
   {
-    title: 'Desenvolvedor(a) de aplicações Frontend',
+    jobOpportunityCardTitle: 'Desenvolvedor(a) de aplicações Frontend',
     country: 'Brasil',
     modality: "Remoto"
   },
   {
-    title: 'Desenvolvedor(a) de aplicações FullStack',
+    jobOpportunityCardTitle: 'Desenvolvedor(a) de aplicações FullStack',
     country: 'Brasil',
     modality: "Remoto"
   },
   {
-    title: 'Gerente de Produto',
+    jobOpportunityCardTitle: 'Gerente de Produto',
     country: 'Brasil',
     modality: "Remoto"
   },
   {
-    title: 'Analista de dados',
+    jobOpportunityCardTitle: 'Analista de dados',
     country: 'Brasil',
     modality: "Remoto"
   },
   {
-    title: 'Desenvolvedor(a) de aplicações FullStack',
+    jobOpportunityCardTitle: 'Desenvolvedor(a) de aplicações FullStack',
     country: 'Brasil',
     modality: "Remoto"
   }
