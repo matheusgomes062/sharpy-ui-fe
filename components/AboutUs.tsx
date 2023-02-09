@@ -10,7 +10,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
       className="max-w-6xl p-8 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
       {...props}
     >
-      <div className="">
+      <div data-cy="aboutUs">
         <SectionTitle title="Quem Somos" description="" mode={props.mode} />
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div>
