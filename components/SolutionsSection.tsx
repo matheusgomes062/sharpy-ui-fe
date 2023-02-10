@@ -2,13 +2,12 @@ import { FunctionComponent, useState } from "react";
 import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
 import Solutions from "../data/Solutions";
-import SolutionsCardProps from "../types/SolutionsCardProps";
 import CarouselPagination from "./CarouselPagination";
 
 const SolutionsSection: FunctionComponent = ({ ...props }) => {
-  const [selectedSolution, setSelectedSolution] = useState<SolutionsCardProps>(Solutions[0]);
+  const [selectedPage, setSelectedPage] = useState(0);
 
-  const handleSelectedSolution = (section: SolutionsCardProps) => setSelectedSolution(section)
+  const handleSelectedPage = (index: number) => setSelectedPage(index);
 
   return (
     <div className="w-full bg-primary-purple" data-cy="solutionSection">
@@ -34,11 +33,11 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
         </div>
         <div className="flex justify-center mb-14 lg:hidden">
           <div className="flex-col w-full">
-            <SolutionsCard {...selectedSolution} />
+            <SolutionsCard {...Solutions[selectedPage]} />
             <CarouselPagination
-              allOptions={Solutions}
-              selectedOption={selectedSolution}
-              handleCallback={handleSelectedSolution}
+              selectedPage={selectedPage}
+              numberOfPages={Solutions.length}
+              handleCallback={handleSelectedPage}
             />
           </div>
         </div>
