@@ -23,6 +23,6 @@ Primary.args = {
   size: "base",
   label: "Saiba Mais",
   genericTitle: "Nosso Time",
-  shortDescription:
-    "Somos uma Software House com propósitos que vão além da tecnologia.",
+  shortDescription: "Somos uma Software House com propósitos que vão além da tecnologia.",
+  aboutUsImagePath: "/AboutUs.png"
 };
