@@ -18,4 +18,31 @@ Primary.args = {
   buttonLabel: "Ver Mais",
   dropDownPlaceholder: "Filtrar pro Área",
   inputPlaceholder: "Buscar Oportunidade",
+  jobOpportunities: [
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Gerente de Produto",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Analista de dados",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+  ],
 };
