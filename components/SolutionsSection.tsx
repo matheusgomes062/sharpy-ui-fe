@@ -15,7 +15,7 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
         className="max-w-6xl p-8 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
         {...props}
       >
-        <div className="mt-14 mb-14">
+        <div className="my-14">
           <SectionTitle
             title="Soluções"
             description="A Sharpy acredita que a tecnologia é uma ferramenta de melhoria contínua na vida e na rotina de pessoas e empresas."
