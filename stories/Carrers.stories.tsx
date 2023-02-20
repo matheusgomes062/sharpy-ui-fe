@@ -16,7 +16,35 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   sectionTitle: "Carreiras",
-  description: "Somos uma Software House com propósitos que vão além da tecnologia. Por isso, nosso time é multidisciplinar.",
+  description:
+    "Somos uma Software House com propósitos que vão além da tecnologia. Por isso, nosso time é multidisciplinar.",
+  jobOpportunities: [
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Gerente de Produto",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Analista de dados",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+    {
+      jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
+      country: "Brasil",
+      modality: "Remoto",
+    },
+  ],
   mode: "dark",
   primary: true,
   size: "base",

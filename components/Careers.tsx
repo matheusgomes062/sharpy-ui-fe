@@ -3,7 +3,6 @@ import ICareersProps from "types/CareersProps";
 import JobOpportunityCard from "./JobOpportunityCard";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
-import MockJobOpportunities from "../mocks/JobOpportunities";
 
 /**
  * Button component for user interaction
@@ -22,7 +21,7 @@ const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
       />
 
       <div className="flex flex-wrap w-full mt-8 mb-10">
-        {MockJobOpportunities.slice(0, 3).map((vacancy) => (
+        {props.jobOpportunities.slice(0, 3).map((vacancy) => (
           <JobOpportunityCard
             key={vacancy.jobOpportunityCardTitle}
             {...vacancy}
