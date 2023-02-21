@@ -2,7 +2,7 @@ export default interface IJobOpportunityCardProps {
   /**
    * Title of the vacancy
    */
-  title: string;
+  jobOpportunityCardTitle: string;
   /**
    * Country of job
    */
