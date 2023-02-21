@@ -29,7 +29,7 @@ const JobOpportunityCard: FunctionComponent<IJobOpportunityCardProps> = (
           </p>
         </div>
         <p className="text-lg font-bold md:text-base text-mobh3">
-          {vacancyCardProps.title}
+          {vacancyCardProps.jobOpportunityCardTitle}
         </p>
       </div>
       <div className="grid place-items-end">

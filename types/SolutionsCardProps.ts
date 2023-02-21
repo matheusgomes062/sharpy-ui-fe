@@ -10,5 +10,5 @@ export default interface ISolutionsCardProps {
   /**
   * Short description of solution card
   */
-  shortDescription: string;
+  solutionsCardDescription: string;
 }

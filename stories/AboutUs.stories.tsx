@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof AboutUs> = (args) => (
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  title: "Quem Somos",
+  sectionTitle: "Quem Somos",
   mode: "dark",
   primary: true,
   size: "base",
