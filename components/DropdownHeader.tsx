@@ -1,6 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import HeaderItems from './HeaderItems';
-import IDropDownProps from "types/DropDownProps";
+import Image from "next/image";
+import Icon from "@mdi/react";
+import { mdiClose } from "@mdi/js";
 
 const menuItems = [
   {
@@ -41,17 +43,44 @@ const menuItems = [
   },
 ]
 
+interface Props {
+  mobile?: Boolean;
+  onChildClick?: () => void;
+}
 
-const DropDownHeader: FunctionComponent = ({
-}) => {
-
+const DropdownHeader: FunctionComponent<Props> = (props) => {
+  const { mobile, onChildClick } = props;
+  
   return (
-      <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-xs text-primary-purple md:font-medium md:border-0" aria-labelledby="dropdown">
+    mobile ? (
+      <ul className="flex flex-col text-white bg-black w-full h-full px-3" aria-labelledby="dropdown">
+        <div className="flex flex-row items-center py-5 justify-between px-3">
+          <Image
+            width={90}
+            height={30}
+            src="/sharpy-logo.svg"
+            alt="sharpy SVG"
+          />
+          <button 
+            onClick={onChildClick}>
+            <Icon
+              path={mdiClose}
+              className={'text-primary-orange cursor-pointer ml-3'}
+              size={1.3}
+              />
+          </button>
+        </div>
+        {menuItems.map((menu, index) => {
+          return <HeaderItems items={menu} key={index} mobile={mobile}/>;
+        })}
+      </ul>) : (
+      <ul className="flex flex-row space-x-8 mt-0 text-xs text-primary-purple font-medium border-0" aria-labelledby="dropdown">
         {menuItems.map((menu, index) => {
           return <HeaderItems items={menu} key={index} />;
         })}
       </ul>
+    )
   );
 };
 
-export default DropDownHeader;
+export default DropdownHeader;

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import Icon from '@mdi/react';
-import { mdiAccountCircleOutline, mdiMenu } from '@mdi/js';
-import DropDownHeader from './DropdownHeader';
+import { mdiMenu } from '@mdi/js';
+import DropdownHeader from './DropdownHeader';
 
 import { useState } from "react";
 
@@ -25,10 +25,12 @@ const Navbar: FunctionComponent = () => {
           </a>
         </div>
         
-        <div className={`md:items-center justify-between w-full ${ expand ? 'flex flex-col items-start h-full absolute top-24' : 'hidden'} md:flex md:w-auto`}>          
-          <DropDownHeader />
+        <div className={`md:items-center justify-between w-full md:flex  md:w-auto sm:hidden`}>          
+          <DropdownHeader />
+        </div>
         
-          <Icon path={mdiAccountCircleOutline} className={`material-icons-outlined text-primary-orange cursor-pointer ml-10`} size={1.5}/>
+        <div className={`justify-between w-full ${ expand ? 'flex flex-col items-start h-full absolute top-0 left-0' : 'hidden'} md:hidden`}>
+          <DropdownHeader mobile={true} onChildClick={() => setExpand((prev) => !prev)}/>
         </div>
       </div>
     </nav>
