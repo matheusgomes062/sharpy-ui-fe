@@ -1,12 +1,12 @@
 import { FunctionComponent, useState } from "react";
 import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
-import Solutions from "../data/Solutions";
 import SolutionsCardProps from "../types/SolutionsCardProps";
 import CarouselPagination from "./CarouselPagination";
+import ISolutionsSectionProps from "types/SolutionsSectionProps";
 
-const SolutionsSection: FunctionComponent = ({ ...props }) => {
-  const [selectedSolution, setSelectedSolution] = useState<SolutionsCardProps>(Solutions[0]);
+const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props }) => {
+  const [selectedSolution, setSelectedSolution] = useState<SolutionsCardProps>(props.solutions[0]);
 
   const handleSelectedSolution = (section: SolutionsCardProps) => setSelectedSolution(section)
 
@@ -18,14 +18,14 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
       >
         <div className="mt-14">
           <SectionTitle
-            title="Soluções"
-            description="A Sharpy acredita que a tecnologia é uma ferramenta de melhoria contínua na vida e na rotina de pessoas e empresas."
-            mode="light"
+            sectionTitle={props.sectionTitle}
+            description={props.description}
+            mode={props.mode}
           />
         </div>
         <div className="hidden lg:flex">
           <div className="flex flex-wrap justify-between w-full mb-10">
-            {Solutions.map((solution, index) => (
+            {props.solutions.map((solution, index) => (
               <div className="mb-12" key={index}>
                 <SolutionsCard {...solution} />
               </div>
@@ -36,7 +36,7 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
           <div className="flex-col w-full">
             <SolutionsCard {...selectedSolution} />
             <CarouselPagination
-              allOptions={Solutions}
+              allOptions={props.solutions}
               selectedOption={selectedSolution}
               handleCallback={handleSelectedSolution}
             />

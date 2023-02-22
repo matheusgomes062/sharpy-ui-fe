@@ -10,7 +10,7 @@ const icons = {
   "Screenshot": mdiMonitorScreenshot
 };
 
-const SolutionsCard: FunctionComponent<SolutionsCardProps> = (solutionsCardProps) => {
+const SolutionsCard: FunctionComponent<SolutionsCardProps> = (props) => {
   const [borderStyle, setBorderStyle] = useState('border-primary-purple');
 
   const changeBorderStyle = (style: string) => setBorderStyle(style);
@@ -26,16 +26,14 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (solutionsCardProps
     >
       <div className="flex flex-col justify-between w-full">
         <Icon
-          path={icons[solutionsCardProps.icon]}
+          path={icons[props.icon]}
           size={3}
           color="disabled"
           className="fill-primary-orange"
         />
-        <p className="text-xs font-bold md:text-lg">
-          {solutionsCardProps.title}
-        </p>
+        <p className="text-xs font-bold md:text-lg">{props.title}</p>
         <p className="text-mobsm md:text-xs">
-          {solutionsCardProps.shortDescription}
+          {props.solutionsCardDescription}
         </p>
         <div
           onMouseEnter={() =>
