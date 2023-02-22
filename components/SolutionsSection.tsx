@@ -6,9 +6,9 @@ import CarouselPagination from "./CarouselPagination";
 import ISolutionsSectionProps from "types/SolutionsSectionProps";
 
 const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props }) => {
-  const [selectedSolution, setSelectedSolution] = useState<SolutionsCardProps>(props.solutions[0]);
+  const [selectedPage, setSelectedPage] = useState(0);
 
-  const handleSelectedSolution = (section: SolutionsCardProps) => setSelectedSolution(section)
+  const handleSelectedPage = (index: number) => setSelectedPage(index);
 
   return (
     <div className="w-full bg-primary-purple" data-cy="solutionSection">
@@ -16,7 +16,7 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
         className="max-w-6xl p-8 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
         {...props}
       >
-        <div className="mt-14">
+        <div className="my-14">
           <SectionTitle
             sectionTitle={props.sectionTitle}
             description={props.description}
@@ -34,11 +34,11 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
         </div>
         <div className="flex justify-center mb-14 lg:hidden">
           <div className="flex-col w-full">
-            <SolutionsCard {...selectedSolution} />
+            <SolutionsCard {...props.solutions[selectedPage]} />
             <CarouselPagination
-              allOptions={props.solutions}
-              selectedOption={selectedSolution}
-              handleCallback={handleSelectedSolution}
+              selectedPage={selectedPage}
+              numberOfPages={props.solutions.length}
+              handleCallback={handleSelectedPage}
             />
           </div>
         </div>
