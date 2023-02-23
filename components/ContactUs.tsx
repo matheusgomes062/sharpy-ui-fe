@@ -20,7 +20,7 @@ const ContactUs: FunctionComponent<IContactUsProps> = ({ title, description, ema
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default ContactUs;
