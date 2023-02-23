@@ -11,10 +11,10 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
       data-cy="job-description"
       className="relative max-w-6xl p-4 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
     >
-      <SectionTitle title={props.title} mode={props.mode} />
+      <SectionTitle sectionTitle={props.title} mode={props.mode} />
 
       <div className="flex flex-col">
-        <div className="flex mb-8">
+        <div className="flex mt-10 mb-8">
           <div className="w-6 h-6 md:h-10 md:w-10">
             <Icon
               path={mdiBriefcaseOutline}
