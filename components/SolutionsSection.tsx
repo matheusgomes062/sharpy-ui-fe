@@ -1,10 +1,11 @@
 import { FunctionComponent, useState } from "react";
 import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
-import Solutions from "../data/Solutions";
+import SolutionsCardProps from "../types/SolutionsCardProps";
 import CarouselPagination from "./CarouselPagination";
+import ISolutionsSectionProps from "types/SolutionsSectionProps";
 
-const SolutionsSection: FunctionComponent = ({ ...props }) => {
+const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props }) => {
   const [selectedPage, setSelectedPage] = useState(0);
 
   const handleSelectedPage = (index: number) => setSelectedPage(index);
@@ -15,16 +16,16 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
         className="max-w-6xl p-8 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
         {...props}
       >
-        <div className="mt-14 mb-14">
+        <div className="my-14">
           <SectionTitle
-            title="Soluções"
-            description="A Sharpy acredita que a tecnologia é uma ferramenta de melhoria contínua na vida e na rotina de pessoas e empresas."
-            mode="light"
+            sectionTitle={props.sectionTitle}
+            description={props.description}
+            mode={props.mode}
           />
         </div>
         <div className="hidden lg:flex">
           <div className="flex flex-wrap justify-between w-full mb-10">
-            {Solutions.map((solution, index) => (
+            {props.solutions.map((solution, index) => (
               <div className="mb-12" key={index}>
                 <SolutionsCard {...solution} />
               </div>
@@ -33,10 +34,10 @@ const SolutionsSection: FunctionComponent = ({ ...props }) => {
         </div>
         <div className="flex justify-center mb-14 lg:hidden">
           <div className="flex-col w-full">
-            <SolutionsCard {...Solutions[selectedPage]} />
+            <SolutionsCard {...props.solutions[selectedPage]} />
             <CarouselPagination
               selectedPage={selectedPage}
-              numberOfPages={Solutions.length}
+              numberOfPages={props.solutions.length}
               handleCallback={handleSelectedPage}
             />
           </div>

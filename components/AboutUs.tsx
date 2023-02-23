@@ -11,10 +11,10 @@ const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
       {...props}
     >
       <div data-cy="aboutUs">
-        <SectionTitle title="Quem Somos" description="" mode={props.mode} />
+        <SectionTitle sectionTitle={props.sectionTitle} description="" mode={props.mode} />
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div>
-            <img src="/AboutUs.png" />
+            <img src={props.aboutUsImagePath} />
           </div>
           <div className="flex-row place-self-center">
             <p className="mt-8 lg:mt-0 mb-7">{props.shortDescription}</p>
