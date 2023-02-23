@@ -1,14 +1,16 @@
 import { FunctionComponent, useState } from "react";
 import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
-import SolutionsCardProps from "../types/SolutionsCardProps";
 import CarouselPagination from "./CarouselPagination";
 import ISolutionsSectionProps from "types/SolutionsSectionProps";
+import useTouchEvent from "../hooks/useTouchEvent";
 
 const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props }) => {
   const [selectedPage, setSelectedPage] = useState(0);
 
   const handleSelectedPage = (index: number) => setSelectedPage(index);
+
+  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, props.solutions.length);
 
   return (
     <div className="w-full bg-primary-purple" data-cy="solutionSection">
@@ -32,7 +34,11 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
             ))}
           </div>
         </div>
-        <div className="flex justify-center mb-14 lg:hidden">
+        <div
+          className="flex justify-center mb-14 lg:hidden"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="flex-col w-full">
             <SolutionsCard {...props.solutions[selectedPage]} />
             <CarouselPagination
