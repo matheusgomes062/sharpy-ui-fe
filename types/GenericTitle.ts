@@ -2,7 +2,7 @@ export default interface IGenericTitle {
   /**
  * Title of the component
  */
-  title: string;
+  genericTitle: string;
   /**
  * style of the font used in title
  */
