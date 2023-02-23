@@ -6,6 +6,6 @@ export default interface IGenericTitle {
   /**
  * style of the font used in title
  */
-  fontStyle: string;
+  fontStyle?: string;
   
 }
