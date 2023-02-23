@@ -1,6 +1,7 @@
 import { useState, FunctionComponent, SetStateAction } from "react";
 import IStatisticBlock from "types/StatisticBlock";
 import AnimatedNumber from "./AnimatedNumber";
+import useTouchEvent from "../hooks/useTouchEvent";
 
 const StatisticBlock: FunctionComponent<IStatisticBlock> = ({ statistic, ...props }) => {
   
@@ -8,31 +9,15 @@ const StatisticBlock: FunctionComponent<IStatisticBlock> = ({ statistic, ...prop
     "bg-primary-purple",
     "bg-primary-orange",
     "bg-black",
-  ];
+  ]; 
 
   const [selectedStatistic, setSelectedStatistic] = useState(0);
 
   const changeSelectedStatistic = (index: number) => setSelectedStatistic(index);
 
-  const [startTouchX, setStartTouchX] = useState(0);
+  const selectedStyle = (index: number) => index === selectedStatistic && "py-2";
 
-  const handleTouchStart = (event: React.TouchEvent) => setStartTouchX(event.touches[0].clientX);
-
-
-  const handleTouchEnd = (event: React.TouchEvent) => {
-    const endTouchX = event.changedTouches[0].clientX;
-    const touchDiff = endTouchX - startTouchX;
-
-    // Define a threshold (in pixels) to trigger the change of selected statistic block
-    const threshold = 50;
-
-    const moveToRight = touchDiff > threshold && selectedStatistic > 0;
-    const moveToLeft = touchDiff < -threshold && selectedStatistic < statistic.length - 1;
-
-    moveToRight && changeSelectedStatistic(selectedStatistic - 1);
-    moveToLeft && changeSelectedStatistic(selectedStatistic + 1);
-    
-  };
+  const { handleTouchStart, handleTouchEnd } = useTouchEvent(changeSelectedStatistic, selectedStatistic, statistic.length);
   
   return (
     <div data-cy="statisticBlock">
@@ -51,10 +36,10 @@ const StatisticBlock: FunctionComponent<IStatisticBlock> = ({ statistic, ...prop
         </div>
       </div>
 
-      <div className="grid grid-cols-3 m-auto max-w-7xl">
+      <div className="grid items-center grid-cols-3 m-auto max-w-7xl">
         {statistic.map((statisticInfo, index) => (
           <div
-            className={`${bgColorStatisticBlocks[index]} text-white h-3 md:h-72 flex justify-center`}
+            className={`${bgColorStatisticBlocks[index]} ${selectedStyle(index)} text-white md:h-72 h-3 flex justify-center`}
             key={index}
             onClick={() => changeSelectedStatistic(index)}
           >
