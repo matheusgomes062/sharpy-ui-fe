@@ -8,7 +8,7 @@ export default interface IButtonProps {
   /**
    * How large should the button be?
    */
-  size: 'sm' | 'base' | 'lg' | 'xl';
+  size: 'sm' | 'base' | 'lg' | 'xl' | 'xxs';
   /**
    * Button contents
    */

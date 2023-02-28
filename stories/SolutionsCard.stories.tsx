@@ -19,5 +19,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   icon: "Devices",
   title: "Aplicações personalizadas",
-  shortDescription: "Nesta solução, cuidamos de todo processo de desenvolvimento de soluções."
+  solutionsCardDescription: "Nesta solução, cuidamos de todo processo de desenvolvimento de soluções."
 };
