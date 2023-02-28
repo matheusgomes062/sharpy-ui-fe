@@ -3,6 +3,7 @@ import HeaderItems from './HeaderItems';
 import Image from "next/image";
 import Icon from "@mdi/react";
 import { mdiClose } from "@mdi/js";
+import IDropdownHeaderProps from "types/DropdownHeaderProps";
 
 const menuItems = [
   {
@@ -38,17 +39,12 @@ const menuItems = [
     url: '#',
   },
   {
-    title: 'Fale Consco',
+    title: 'Fale Conosco',
     url: '#',
   },
 ]
 
-interface Props {
-  mobile?: Boolean;
-  onChildClick?: () => void;
-}
-
-const DropdownHeader: FunctionComponent<Props> = (props) => {
+const DropdownHeader: FunctionComponent<IDropdownHeaderProps> = (props) => {
   const { mobile, onChildClick } = props;
   
   return (
