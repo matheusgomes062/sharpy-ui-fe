@@ -21,8 +21,8 @@ const Navbar: FunctionComponent = () => {
             <span className="sr-only">Open main menu</span>
             <Icon path={mdiMenu} className={`material-icons-outlined text-primary-orange`} size={1}/>
           </button>
-          <a href="#" className="flex items-center">
-              <Image src="./sharpy-logo-wide.svg" className="h-7 md:h-8" alt="Sharpy Logo" />
+          <a href="#" className="relative flex items-center w-20 md:w-44 h-7 md:h-8">
+            <Image src="/sharpy-logo-wide.svg" alt="Sharpy Logo" fill />
           </a>
         </div>
         
