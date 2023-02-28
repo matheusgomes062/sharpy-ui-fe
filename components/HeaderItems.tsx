@@ -1,9 +1,9 @@
 import DropdownAux from './DropdownAux';
-
+import IMenuItemsProps from 'types/MenuItemsProps';
 import { useState } from "react";
 
 //TODO: how to instance this items type
-const HeaderItems = ({ items, mobile }: { items: any, mobile?: Boolean }) => {
+const HeaderItems = ({ items, mobile }: { items: IMenuItemsProps, mobile?: Boolean }) => {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   
   return (
@@ -14,7 +14,7 @@ const HeaderItems = ({ items, mobile }: { items: any, mobile?: Boolean }) => {
         {items.submenu ? (
           <>
             <button
-              className="py-2 pl-3 pr-4 flex flex-row items-center hover:text-primary-orange text-xs"
+              className="flex flex-row items-center py-2 pl-3 pr-4 text-xs hover:text-primary-orange"
               type="button"
               aria-haspopup="menu"
               aria-expanded={isDropdownActive ? "true" : "false"}
