@@ -5,9 +5,9 @@ import ICarousel from "types/CarouselProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
 const carouselContent = [
-  ["/CarouselMessage1.svg", "/CarouselImg1.jpg"],
-  ["/CarouselMessage2.svg", "/CarouselImg2.jpg"],
-  ["/CarouselMessage3.svg", "/CarouselImg3.jpg"],
+  ["bg-[url('/public/CarouselMessage1.svg')]", "bg-[url('/public/CarouselImg1.jpg')]"],
+  ["bg-[url('/public/CarouselMessage2.svg')]", "bg-[url('/public/CarouselImg2.jpg')]"],
+  ["bg-[url('/public/CarouselMessage3.svg')]", "bg-[url('/public/CarouselImg3.jpg')]"],
 ];
 
 const Carousel: FunctionComponent<ICarousel> = (props) => {
@@ -42,12 +42,9 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
                 }}
               >
                 {carouselContent.map((item, index) => {
+                  console.log(item[0])
                   return (
-                    <img
-                      key={index}
-                      src={item[0]}
-                      className={`h-full w-full flex-shrink-0`}
-                    />
+                    <div key={index} className={`w-full h-full ${item[0]} bg-no-repeat bg-center bg-cover flex-shrink-0`} /> 
                   );
                 })}
               </div>
@@ -77,11 +74,7 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
             >
               {carouselContent.map((item, index) => {
                 return (
-                  <img
-                    key={index}
-                    src={item[1]}
-                    className={`h-full lg:h-[400px] w-full flex-shrink-0 object-cover`}
-                  />
+                  <div key={index} className={`h-full lg:h-[400px] w-full flex-shrink-0 ${item[1]} bg-no-repeat bg-center bg-cover`} /> 
                 );
               })}
             </div>
