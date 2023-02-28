@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: [
     "../stories/**/*.stories.mdx",
@@ -8,7 +10,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "@storybook/preset-scss",
-    'storybook-addon-next',
     {
       /**
        * Fix Storybook issue with PostCSS@8
@@ -25,5 +26,17 @@ module.exports = {
   framework: "@storybook/react",
   core: {
     "builder": "@storybook/builder-webpack5"
-  }
+  },
+    webpackFinal: (config) => {
+    /**
+     * Fixes font import with /
+     * @see https://github.com/storybookjs/storybook/issues/12844#issuecomment-867544160
+     */
+    config.resolve.roots = [
+      path.resolve(__dirname, '../public'),
+      'node_modules',
+    ];
+
+    return config;
+  },
 }

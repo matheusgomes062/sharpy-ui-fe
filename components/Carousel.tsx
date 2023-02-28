@@ -5,9 +5,9 @@ import ICarousel from "types/CarouselProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
 const carouselContent = [
-  ["bg-[url('/public/CarouselMessage1.svg')]", "bg-[url('/public/CarouselImg1.jpg')]"],
-  ["bg-[url('/public/CarouselMessage2.svg')]", "bg-[url('/public/CarouselImg2.jpg')]"],
-  ["bg-[url('/public/CarouselMessage3.svg')]", "bg-[url('/public/CarouselImg3.jpg')]"],
+  ["bg-[url('/CarouselMessage1.svg')]", "bg-[url('/CarouselImg1.jpg')]"],
+  ["bg-[url('/CarouselMessage2.svg')]", "bg-[url('/CarouselImg2.jpg')]"],
+  ["bg-[url('/CarouselMessage3.svg')]", "bg-[url('/CarouselImg3.jpg')]"],
 ];
 
 const Carousel: FunctionComponent<ICarousel> = (props) => {
@@ -42,7 +42,6 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
                 }}
               >
                 {carouselContent.map((item, index) => {
-                  console.log(item[0])
                   return (
                     <div key={index} className={`w-full h-full ${item[0]} bg-no-repeat bg-center bg-cover flex-shrink-0`} /> 
                   );

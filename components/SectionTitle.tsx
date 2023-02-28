@@ -16,8 +16,6 @@ const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...SectionTitlePr
   return (
     <div className="flex flex-col">
       <div className="flex flex-row mb-6 w-100">
-        {/* <span className={`material-icons-outlined absolute text-center text-primary-orange text-lg`}>cloud</span> */}
-        {/* <img src={mode.svg} alt="next" className="w-8 md:w-12" /> */}
         <div className="relative w-8 md:w-12">
           <Image alt="logo" src={mode.svg} fill />
         </div>
