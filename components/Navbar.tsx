@@ -30,7 +30,7 @@ const Navbar: FunctionComponent = () => {
           <DropdownHeader />
         </div>
         
-        <div className={`justify-between w-full ${ expand ? 'flex flex-col items-start h-full absolute top-0 left-0' : 'hidden'} md:hidden`}>
+        <div className={`justify-between w-full ${ expand ? 'flex flex-col items-start h-full absolute top-0 left-0' : 'hidden'} md:hidden z-10`}>
           <DropdownHeader mobile={true} onChildClick={() => setExpand((prev) => !prev)}/>
         </div>
       </div>
