@@ -14,11 +14,12 @@ const Button: FunctionComponent<IButtonProps> = ({
     ? "bg-primary-purple hover:bg-primary-orange"
     : "bg-primary-orange hover:bg-primary-purple";
 
-  const buttonPadding = {
-    sm: "px-10",
-    base: "px-24",
-    lg: "px-36",
-    xl: "px-48",
+  const buttonSizeConfig = {
+    xxs: "px-2 h-[42px]",
+    sm: "px-10 h-[42px]",
+    base: "px-24 h-[80px]",
+    lg: "px-36 h-[80px]",
+    xl: "px-48 h-[80px]",
   };
 
   return (
@@ -26,7 +27,7 @@ const Button: FunctionComponent<IButtonProps> = ({
       type="button"
       role="button"
       data-cy="click"
-      className={`btn h-20 text-white font-semibold text-${size} uppercase ${mode} ${buttonPadding[size]}`}
+      className={`btn text-white font-semibold text-${size} uppercase ${mode} ${buttonSizeConfig[size]}`}
       {...props}
     >
       {label}

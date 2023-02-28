@@ -25,7 +25,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
                 primary={props.primary}
               />
             </div>
-            <GenericTitle genericTitle={props.genericTitle} fontStyle="" />
+            <GenericTitle genericTitle={props.genericTitle}/>
           </div>
         </div>
       </div>
