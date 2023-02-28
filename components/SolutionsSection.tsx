@@ -15,7 +15,7 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
   return (
     <div className="w-full bg-primary-purple" data-cy="solutionSection">
       <div
-        className="max-w-6xl p-8 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
+        className="max-w-6xl p-8 m-auto overflow-hidden md:max-xl:w-9/12 md:max-lg:w-11/12"
         {...props}
       >
         <div className="my-14">
@@ -35,12 +35,25 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
           </div>
         </div>
         <div
-          className="flex justify-center mb-14 lg:hidden"
+          className="justify-center mb-14 lg:hidden"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="flex-col w-full">
-            <SolutionsCard {...props.solutions[selectedPage]} />
+          <div className="w-full">
+            <div className="w-full overflow-hidden ">
+              <div
+                className="flex transition-transform delay-200"
+                style={{
+                  transform: `translateX(${-selectedPage * 100}%)`,
+                }}
+              >
+                {props.solutions.map((solution, index) => (
+                  <div key={index} className="flex-shrink-0 w-full">
+                    <SolutionsCard {...solution} />
+                  </div>
+                ))}
+              </div>
+            </div>
             <CarouselPagination
               selectedPage={selectedPage}
               numberOfPages={props.solutions.length}
