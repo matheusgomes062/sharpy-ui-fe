@@ -34,21 +34,25 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="bg-black">
           <div className="flex flex-col max-w-[400px] h-[400px] p-7 m-auto justify-between">
-            <div className="relative flex w-full h-[200px] overflow-hidden">
-              {carouselContent.map((item, index) => {
-                return (
-                  <img
-                    key={index}
-                    src={item[0]}
-                    className={`h-full w-full flex-shrink-0 transition-transform delay-200 absolute left-0`}
-                    style={{
-                      transform: `translateX(${(index - selectedPage) * 100}%)`,
-                      objectFit: "cover",
-                    }}
-                  />
-                );
-              })}
+            <div className="w-full overflow-hidden">
+              <div
+                className="flex transition-transform delay-200 w-full h-[200px] align-middle"
+                style={{
+                  transform: `translateX(${-selectedPage * 100}%)`,
+                }}
+              >
+                {carouselContent.map((item, index) => {
+                  return (
+                    <img
+                      key={index}
+                      src={item[0]}
+                      className={`h-full w-full flex-shrink-0`}
+                    />
+                  );
+                })}
+              </div>
             </div>
+
             <div className="max-w-md">
               <Button
                 label={props.label}
@@ -64,20 +68,23 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
           </div>
         </div>
         <div className="hidden bg-primary-orange md:flex">
-          <div className="relative flex w-full overflow-hidden">
-            {carouselContent.map((item, index) => {
-              return (
-                <img
-                  key={index}
-                  src={item[1]}
-                  className={`h-full lg:h-[400px] w-full left-0 absolute flex-shrink-0 transition-transform delay-200`}
-                  style={{
-                    transform: `translateX(${(index - selectedPage) * 100}%)`,
-                    objectFit: "cover",
-                  }}
-                />
-              );
-            })}
+          <div className="w-full overflow-hidden">
+            <div
+              className="flex w-full h-full transition-transform delay-200"
+              style={{
+                transform: `translateX(${-selectedPage * 100}%)`,
+              }}
+            >
+              {carouselContent.map((item, index) => {
+                return (
+                  <img
+                    key={index}
+                    src={item[1]}
+                    className={`h-full lg:h-[400px] w-full flex-shrink-0 object-cover`}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
