@@ -4,10 +4,11 @@ import AboutUs from "@/components/AboutUs";
 import SolutionsSection from "@/components/SolutionsSection";
 import Careers from "@/components/Careers";
 import ContactUs from "@/components/ContactUs";
+import Layout from "@/components/Layout";
 
 export default function Welcome() {
   return (
-    <div className="">
+    <Layout>
       <Carousel
         label="Conheça a Sharpy"
         primary={false}
@@ -97,6 +98,6 @@ export default function Welcome() {
         phone="+55 11 9876-5555"
         address="Rua Foz de São José, 99, BR"
       />
-    </div>
+    </Layout>
   );
 }
