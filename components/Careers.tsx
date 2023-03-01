@@ -10,7 +10,7 @@ import Button from "./Button";
 const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
   return (
     <div
-      className="relative max-w-6xl p-4 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
+      className="relative max-w-6xl p-4 m-auto mt-10 mb-10 md:max-xl:w-9/12 md:max-lg:w-11/12 md:mt-24 md:mb-24"
       {...props}
       data-cy="careers"
     >

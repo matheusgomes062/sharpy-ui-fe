@@ -7,7 +7,7 @@ import GenericTitle from "./GenericTitle";
 const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
   return (
     <div
-      className="max-w-6xl m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
+      className="max-w-6xl m-auto mt-10 mb-10 md:max-xl:w-9/12 md:max-lg:w-11/12 md:mt-24 md:mb-24"
       {...props}
     >
       <div data-cy="aboutUs">
