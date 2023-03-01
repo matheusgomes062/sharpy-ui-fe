@@ -31,7 +31,6 @@ const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
       <Button
         label={props.label}
         primary={props.primary}
-        size={props.size}
         onClick={props.onClick}
         key={props.label}
       />

@@ -21,7 +21,6 @@ const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
             <div className="mb-12 lg:mb-20">
               <Button
                 label={props.label}
-                size={props.size}
                 primary={props.primary}
               />
             </div>

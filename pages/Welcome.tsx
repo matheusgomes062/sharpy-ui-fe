@@ -12,7 +12,6 @@ export default function Welcome() {
       <Carousel
         label="Conheça a Sharpy"
         primary={false}
-        size="sm"
       />
       <StatisticBlock
         statistic={[
@@ -25,7 +24,6 @@ export default function Welcome() {
         sectionTitle="Quem Somos"
         mode="dark"
         primary={true}
-        size="base"
         label="Saiba Mais"
         genericTitle="Nosso Time"
         shortDescription="Somos uma Software House com propósitos que vão além da tecnologia."
@@ -88,7 +86,6 @@ export default function Welcome() {
         ]}
         mode="dark"
         primary={true}
-        size="base"
         label="Ver Mais"
       />
       <ContactUs

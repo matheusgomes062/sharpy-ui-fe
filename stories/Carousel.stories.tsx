@@ -19,5 +19,4 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: "Conheça a Sharpy",
   primary: false,
-  size: "sm",
 };

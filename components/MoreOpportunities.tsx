@@ -22,7 +22,7 @@ const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({ ...prop
           />
         ))}
       </div>
-      <Button primary={true} label={props.buttonLabel} size="base" />
+      <Button primary={true} label={props.buttonLabel}/>
       <div className="flex flex-wrap mt-10">
         <Input
           placeholder={props.inputPlaceholder}

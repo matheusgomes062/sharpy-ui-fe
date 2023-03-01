@@ -53,7 +53,6 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
               <Button
                 label={props.label}
                 primary={props.primary}
-                size={props.size}
               />
             </div>
             <CarouselPagination
