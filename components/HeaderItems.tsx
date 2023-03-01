@@ -1,6 +1,7 @@
 import DropdownAux from './DropdownAux';
 import IMenuItemsProps from 'types/MenuItemsProps';
 import { useState } from "react";
+import Link from "next/link";
 
 //TODO: how to instance this items type
 const HeaderItems = ({ items, mobile }: { items: IMenuItemsProps, mobile?: Boolean }) => {
@@ -25,7 +26,7 @@ const HeaderItems = ({ items, mobile }: { items: IMenuItemsProps, mobile?: Boole
             <DropdownAux submenus={items.submenu} isDropdownActive={isDropdownActive} mobile={true}/>
           </>
         ) : (
-          <a className="block py-2 pl-3 pr-4 text-xs hover:text-primary-orange" href={items.url}>{items.title}</a>
+          <Link className="block py-2 pl-3 pr-4 text-xs hover:text-primary-orange" href={items.url}>{items.title}</Link>
         )}
       </li>
     ) : (
@@ -47,7 +48,7 @@ const HeaderItems = ({ items, mobile }: { items: IMenuItemsProps, mobile?: Boole
             <DropdownAux submenus={items.submenu} isDropdownActive={isDropdownActive} />
           </>
         ) : (
-          <a className="block p-0 hover:text-primary-orange" href={items.url}>{items.title}</a>
+          <Link className="block p-0 hover:text-primary-orange" href={items.url}>{items.title}</Link>
         )}
       </li>
     )
