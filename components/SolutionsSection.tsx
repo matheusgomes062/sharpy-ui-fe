@@ -5,12 +5,12 @@ import CarouselPagination from "./CarouselPagination";
 import ISolutionsSectionProps from "types/SolutionsSectionProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
-const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props }) => {
+const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ mode, sectionTitle, solutions, description, ...props}) => {
   const [selectedPage, setSelectedPage] = useState(0);
 
   const handleSelectedPage = (index: number) => setSelectedPage(index);
 
-  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, props.solutions.length);
+  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, solutions.length);
 
   return (
     <div className="w-full bg-primary-purple" data-cy="solutionSection">
@@ -21,14 +21,14 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
         <div className="flex flex-col justify-center w-full max-w-6xl">
           <div className="my-14">
             <SectionTitle
-              sectionTitle={props.sectionTitle}
-              description={props.description}
-              mode={props.mode}
+              sectionTitle={sectionTitle}
+              description={description}
+              mode={mode}
             />
           </div>
           <div className="hidden lg:flex">
             <div className="flex justify-between w-full mb-10">
-              {props.solutions.map((solution, index) => (
+              {solutions.map((solution, index) => (
                 <div key={index}>
                   <SolutionsCard {...solution} />
                 </div>
@@ -48,7 +48,7 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
                     transform: `translateX(${-selectedPage * 100}%)`,
                   }}
                 >
-                  {props.solutions.map((solution, index) => (
+                  {solutions.map((solution, index) => (
                     <div key={index} className="flex-shrink-0 w-full">
                       <SolutionsCard {...solution} />
                     </div>
@@ -57,7 +57,7 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
               </div>
               <CarouselPagination
                 selectedPage={selectedPage}
-                numberOfPages={props.solutions.length}
+                numberOfPages={solutions.length}
                 handleCallback={handleSelectedPage}
               />
             </div>

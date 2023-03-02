@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent } from 'react'
 import SmartLink from './SmartLink';
 import SectionTitle from './SectionTitle';
 import { mdiEmailOutline, mdiPhone, mdiMapMarkerOutline } from '@mdi/js';

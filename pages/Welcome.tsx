@@ -27,7 +27,6 @@ export default function Welcome() {
         label="Saiba Mais"
         genericTitle="Nosso Time"
         shortDescription="Somos uma Software House com propósitos que vão além da tecnologia."
-        description=""
       />
       <SolutionsSection
         sectionTitle="Soluções"

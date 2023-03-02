@@ -7,7 +7,7 @@ import Button from "./Button";
 /**
  * Button component for user interaction
  */
-const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
+const Careers: FunctionComponent<ICareersProps> = ({ jobOpportunities, label, mode, sectionTitle, description, onClick, primary, ...props}) => {
   return (
     <div
       className="flex justify-center w-full p-4 mt-10 mb-10 md:mt-24 md:mb-24"
@@ -16,13 +16,13 @@ const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
     >
       <div className="flex flex-col justify-center max-w-6xl">
         <SectionTitle
-          sectionTitle={props.sectionTitle}
-          description={props.description}
-          mode={props.mode}
+          sectionTitle={sectionTitle}
+          description={description}
+          mode={mode}
         />
 
         <div className="flex flex-wrap w-full mt-8 mb-10 lg:justify-between lg:flex-nowrap">
-          {props.jobOpportunities.slice(0, 3).map((vacancy) => (
+          {jobOpportunities.slice(0, 3).map((vacancy) => (
             <JobOpportunityCard
               key={vacancy.jobOpportunityCardTitle}
               {...vacancy}
@@ -31,10 +31,10 @@ const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
         </div>
         <div>
           <Button
-            label={props.label}
-            primary={props.primary}
-            onClick={props.onClick}
-            key={props.label}
+            label={label}
+            primary={primary}
+            onClick={onClick}
+            key={label}
           />
         </div>
       </div>

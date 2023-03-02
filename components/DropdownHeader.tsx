@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useRef } from "react";
+import React, { FunctionComponent } from "react";
 import HeaderItems from './HeaderItems';
 import Image from "next/image";
 import Icon from "@mdi/react";

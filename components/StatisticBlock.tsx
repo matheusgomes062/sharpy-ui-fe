@@ -1,4 +1,4 @@
-import { useState, FunctionComponent, SetStateAction } from "react";
+import { useState, FunctionComponent } from "react";
 import IStatisticBlock from "types/StatisticBlock";
 import AnimatedNumber from "./AnimatedNumber";
 import useTouchEvent from "../hooks/useTouchEvent";

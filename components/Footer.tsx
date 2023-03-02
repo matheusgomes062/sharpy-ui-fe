@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import Icon from "@mdi/react";
 import { mdiLinkedin, mdiTwitter, mdiGithub } from "@mdi/js";
 import SmartLink from "./SmartLink";
-import Image from "next/image";
 import Link from "next/link";
 
 const routes = [
