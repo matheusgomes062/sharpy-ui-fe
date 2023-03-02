@@ -14,7 +14,7 @@ export default interface ISmartLinkProps {
   /**
    * Type of Link
    */
-  type: 'email' | 'number' | 'tel' | 'text' | 'url' | 'week';
+  type: "email" | "number" | "tel" | "text" | "url" | "week";
   /**
    * Icon name
    */
@@ -27,4 +27,8 @@ export default interface ISmartLinkProps {
    * Add font size as such: text-sm or font-md and others
    */
   iconSize?: number;
+  /**
+   * Mode
+   */
+  mode: "light" | "dark";
 }

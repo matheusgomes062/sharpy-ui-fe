@@ -11,8 +11,10 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
   icon,
   underline,
   iconSize,
+  mode,
   href,
 }) => {
+  const textColor =  mode === "dark" ? "text-black" : "text-white"
   return (
     <div className="flex flex-row items-center w-100">
       {icon && (
@@ -27,9 +29,11 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
         href={href}
         role="link"
         data-cy="link"
-        className={`text-black hover:text-primary-orange active:text-primary-purple ${
+        className={`md:text-[20px] sm:text-[15px] hover:text-primary-orange active:text-primary-purple ${
           icon ? "ml-3" : ""
-        } ${underline ? "underline underline-offset-6" : ""} max-w-[250px]`}
+          } ${underline ? "underline underline-offset-6" : ""} max-w-[250px]
+          ${textColor}
+        `}
       >
         {label}
       </Link>
