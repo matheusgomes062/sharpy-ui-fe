@@ -56,8 +56,7 @@ const Footer: FunctionComponent = () => {
     >
       <div className="w-full max-w-6xl py-8 md:py-20">
         <Link href="/">
-
-          <div className={`md:w-[181px] md:h-[59px] w-[88px] h-7 bg-[url('/sharpy-logo.svg')] bg-contain bg-no-repeat bg-cover`} /> 
+          <div className={`md:w-[181px] md:h-[59px] w-[88px] h-7 bg-[url('/sharpy-logo.svg')] bg-no-repeat bg-cover`} /> 
         </Link>
 
         <div className="flex justify-between mt-5 md:mt-20 sm:max-md:flex-col-reverse">

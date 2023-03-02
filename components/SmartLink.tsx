@@ -10,7 +10,6 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
   label,
   icon,
   underline,
-  iconSize,
   mode,
   href,
 }) => {
@@ -21,8 +20,7 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
         // <span className={`material-icons-outlined absolute text-center text-primary-orange`}>{icon}</span>
         <Icon
           path={icon}
-          className={`material-icons-outlined text-primary-orange`}
-          size={iconSize}
+          className={`material-icons-outlined text-primary-orange md:w-20 md:h-20 w-9 h-9`}
         />
       )}
       <Link

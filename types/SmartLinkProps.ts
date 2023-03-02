@@ -24,10 +24,6 @@ export default interface ISmartLinkProps {
    */
   underline?: boolean;
   /**
-   * Add font size as such: text-sm or font-md and others
-   */
-  iconSize?: number;
-  /**
    * Mode
    */
   mode: "light" | "dark";
