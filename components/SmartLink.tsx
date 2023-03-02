@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Icon from "@mdi/react";
 import ISmartLinkProps from "types/SmartLinkProps";
+import Link from "next/link";
 
 /**
  * Link component for user interaction
@@ -22,7 +23,7 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
           size={iconSize}
         />
       )}
-      <a
+      <Link
         href={href}
         role="link"
         data-cy="link"
@@ -31,7 +32,7 @@ const SmartLink: FunctionComponent<ISmartLinkProps> = ({
         } ${underline ? "underline underline-offset-6" : ""} max-w-[250px]`}
       >
         {label}
-      </a>
+      </Link>
     </div>
   );
 };
