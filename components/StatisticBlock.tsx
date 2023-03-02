@@ -36,7 +36,7 @@ const StatisticBlock: FunctionComponent<IStatisticBlock> = ({ statistic, ...prop
         </div>
       </div>
 
-      <div className="grid items-center grid-cols-3 m-auto max-w-7xl">
+      <div className="grid items-center grid-cols-3 m-auto max-w-[1440px]">
         {statistic.map((statisticInfo, index) => (
           <div
             className={`${bgColorStatisticBlocks[index]} ${selectedStyle(index)} text-white md:h-72 h-3 flex justify-center`}
