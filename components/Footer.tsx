@@ -54,14 +54,10 @@ const Footer: FunctionComponent = () => {
       className="flex justify-center w-screen p-4 bg-black"
       data-cy="footer"
     >
-      <div className="w-full max-w-6xl py-20">
+      <div className="w-full max-w-6xl py-8 md:py-20">
         <Link href="/">
-          <Image
-            width={181}
-            height={59}
-            src="/sharpy-logo.svg"
-            alt="sharpy SVG"
-          />
+
+          <div className={`md:w-[181px] md:h-[59px] w-[88px] h-7 bg-[url('/sharpy-logo.svg')] bg-contain bg-no-repeat bg-cover`} /> 
         </Link>
 
         <div className="flex justify-between mt-5 md:mt-20 sm:max-md:flex-col-reverse">
