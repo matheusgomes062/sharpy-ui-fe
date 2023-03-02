@@ -43,7 +43,7 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
               >
                 {carouselContent.map((item, index) => {
                   return (
-                    <div key={index} className={`w-full h-full ${item[0]} bg-no-repeat bg-center bg-cover flex-shrink-0`} /> 
+                    <div key={index} className={`w-full h-full ${item[0]} bg-no-repeat bg-center bg-contain flex-shrink-0`} /> 
                   );
                 })}
               </div>
@@ -53,7 +53,6 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
               <Button
                 label={props.label}
                 primary={props.primary}
-                size={props.size}
               />
             </div>
             <CarouselPagination

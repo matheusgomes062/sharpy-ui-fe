@@ -6,7 +6,6 @@ import IButtonProps from "types/ButtonProps";
  */
 const Button: FunctionComponent<IButtonProps> = ({
   primary,
-  size,
   label,
   ...props
 }) => {
@@ -14,20 +13,12 @@ const Button: FunctionComponent<IButtonProps> = ({
     ? "bg-primary-purple hover:bg-primary-orange"
     : "bg-primary-orange hover:bg-primary-purple";
 
-  const buttonSizeConfig = {
-    xxs: "px-2 h-[42px]",
-    sm: "px-10 h-[42px]",
-    base: "px-24 h-[80px]",
-    lg: "px-36 h-[80px]",
-    xl: "px-48 h-[80px]",
-  };
-
   return (
     <button
       type="button"
       role="button"
       data-cy="click"
-      className={`btn text-white font-semibold text-${size} uppercase ${mode} ${buttonSizeConfig[size]}`}
+      className={`btn text-white uppercase ${mode} px-5 h-[42px] text-mobbase font-medium md:px-10 md:h-[70px] md:text-sm md:font-semibold`}
       {...props}
     >
       {label}
