@@ -5,13 +5,13 @@ import Image from "next/image";
 /**
  * Link component for user interaction
  */
-const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...SectionTitleProps }) => {
+const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...sectionTitleProps }) => {
 
-  const [mode, setMode] = useState<{color: string, svg: string}>({color: "", svg: ""});
+  const [mode, setMode] = useState<{color: string, svg: string}>({color: "", svg: "/white-logo.svg"});
 
   useEffect(() => {
-    SectionTitleProps.mode === "light" ? setMode({ color: "white", svg: "/white-logo.svg" }) : setMode({ color: "black", svg: "/dark-logo.svg" });
-  }, [SectionTitleProps.mode])
+    sectionTitleProps.mode === "light" ? setMode({ color: "white", svg: "/white-logo.svg" }) : setMode({ color: "black", svg: "/dark-logo.svg" });
+  }, [sectionTitleProps.mode])
 
   return (
     <div className="flex flex-col">
@@ -22,11 +22,11 @@ const SectionTitle: FunctionComponent<ISectionTitleProps> = ({ ...SectionTitlePr
         <h2
           className={`ml-6 font-medium text-mobh2 md:text-2xl text-${mode.color}`}
         >
-          {SectionTitleProps.sectionTitle}
+          {sectionTitleProps.sectionTitle}
         </h2>
       </div>
       <span className={`text-mobbase md:text-base text-${mode.color}`}>
-        {SectionTitleProps.description}
+        {sectionTitleProps.description}
       </span>
     </div>
   );

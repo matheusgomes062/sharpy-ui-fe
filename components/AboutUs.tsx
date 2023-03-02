@@ -12,7 +12,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({ ...props }) => {
     >
       <div data-cy="aboutUs" className="flex flex-col justify-center w-full max-w-6xl">
         <div className="pb-0 p-7 md:p-0">
-          <SectionTitle sectionTitle={props.sectionTitle} description="" mode={props.mode} />
+          <SectionTitle sectionTitle={props.sectionTitle} mode={props.mode} />
         </div>
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div className={`w-full h-56 md:h-[350px] bg-aboutUs bg-no-repeat bg-center bg-cover relative`}/>
