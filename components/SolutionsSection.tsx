@@ -27,9 +27,9 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ ...props 
             />
           </div>
           <div className="hidden lg:flex">
-            <div className="flex flex-wrap justify-between w-full mb-10">
+            <div className="flex justify-between w-full mb-10">
               {props.solutions.map((solution, index) => (
-                <div className="mb-12" key={index}>
+                <div key={index}>
                   <SolutionsCard {...solution} />
                 </div>
               ))}

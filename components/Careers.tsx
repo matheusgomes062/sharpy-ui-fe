@@ -21,7 +21,7 @@ const Careers: FunctionComponent<ICareersProps> = ({ ...props }) => {
           mode={props.mode}
         />
 
-        <div className="flex flex-wrap w-full mt-8 mb-10">
+        <div className="flex flex-wrap w-full mt-8 mb-10 lg:flex-nowrap">
           {props.jobOpportunities.slice(0, 3).map((vacancy) => (
             <JobOpportunityCard
               key={vacancy.jobOpportunityCardTitle}

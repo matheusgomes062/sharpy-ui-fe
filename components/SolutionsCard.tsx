@@ -21,7 +21,7 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (props) => {
 
   return (
     <div
-      className={`lg:w-[350px] flex justify-center px-11 py-14 bg-white border-2 border-solid w-full h-[530px] ${borderStyle}`}
+      className={`lg:w-[330px] xl:w-[350px] flex justify-center px-11 py-14 bg-white border-2 border-solid w-full h-[530px] ${borderStyle}`}
       data-cy="solutionsCard"
     >
       <div className="flex flex-col justify-between w-full">
