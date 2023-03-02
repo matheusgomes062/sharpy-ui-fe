@@ -5,7 +5,7 @@ import ILayoutProps from "types/LayoutProps";
 
 export default function Layout({ children }: ILayoutProps) {
   return (
-    <div className="flex flex-col justify-between w-screen h-screen overflow-x-hidden overflow-y-scroll md:scrollbar">
+    <div className="flex flex-col justify-between w-screen h-screen overflow-x-hidden overflow-y-scroll lg:scrollbar">
       <Navbar />
       <main>{children}</main>
       <Footer />
