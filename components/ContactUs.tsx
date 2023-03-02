@@ -16,9 +16,9 @@ const ContactUs: FunctionComponent<IContactUsProps> = ({ title, description, ema
           <SectionTitle sectionTitle={title} description={description} mode="dark" />
         </div>
         <div className='flex flex-col md:flex-row md:[&>*]:mr-14 sm:[&>*]:mb-6 md:justify-between'>
-          <SmartLink label={email} type={'email'} icon={mdiEmailOutline} iconSize={2} href={'/'}/>
-          <SmartLink label={phone} type={'tel'} icon={mdiPhone} iconSize={2} href={'/'}/>
-          <SmartLink label={address} type={'text'} icon={mdiMapMarkerOutline} iconSize={2} href={'/'}/>
+          <SmartLink label={email} type={'email'} icon={mdiEmailOutline} iconSize={2} href={'/'} mode="dark"/>
+          <SmartLink label={phone} type={'tel'} icon={mdiPhone} iconSize={2} href={'/'} mode="dark"/>
+          <SmartLink label={address} type={'text'} icon={mdiMapMarkerOutline} iconSize={2} href={'/'} mode="dark"/>
         </div>
       </div>
     </div>
