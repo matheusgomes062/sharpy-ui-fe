@@ -11,6 +11,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({
   label,
   genericTitle,
   shortDescription,
+  hasIcon,
   ...props
 }) => {
   return (
@@ -34,7 +35,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({
             <div className="mb-12 lg:mb-20">
               <Button label={label} primary={primary} />
             </div>
-            <GenericTitle genericTitle={genericTitle} />
+            <GenericTitle genericTitle={genericTitle} hasIcon={hasIcon} />
           </div>
         </div>
       </div>
