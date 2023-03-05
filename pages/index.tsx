@@ -1,4 +1,4 @@
-import Welcome from "./welcome";
+import Welcome from "./Welcome";
 
 export default function Home() {  
   return (
