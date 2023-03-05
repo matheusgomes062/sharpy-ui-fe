@@ -14,6 +14,4 @@ const Template: ComponentStory<typeof DropdownHeader> = (args) => <DropdownHeade
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  options: ['Marketing', 'Recusos Humanos', 'Tecnologia']
-};
+Primary.args = {};
