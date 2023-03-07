@@ -15,39 +15,49 @@ const Template: ComponentStory<typeof OurTeam> = (args) => <OurTeam {...args} />
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  fontStyle: "font-bold",
+  fontStyle: "font-bold md:text-sm",
   genericTitle: "Nosso Time",
   hasIcon: false,
   ourTeam: [
     {
-      name: "Siqueira",
+      name: "Mateus Siqueira Carneiro",
       position: "Backend Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      src: "bg-[url('/siqueirao.jpeg')]",
     },
     {
-      name: "Rambo",
-      position: "Backend Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      name: "Matheus Gomes de Paula",
+      position: "Frontend Developer",
+      src: "bg-[url('/gomes.jpg')]",
     },
     {
-      name: "Gomes",
-      position: "Backend Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      name: "Jhonatan Lourenço Rambo",
+      position: "Frontend Developer",
+      src: "bg-[url('/rambo.jpeg')] ",
     },
     {
       name: "João",
       position: "Front end Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      src: "bg-[url('/carousel_img_2.jpg')]",
     },
     {
       name: "Pedro",
       position: "Front end Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      src: "bg-[url('/carousel_img_2.jpg')]",
     },
     {
       name: "Vitor",
       position: "Front end Developer",
-      src: "bg-[url('/CarouselImg2.jpg')]",
+      src: "bg-[url('/carousel_img_2.jpg')]",
+    },
+    {
+      name: "Pedro",
+      position: "Front end Developer",
+      src: "bg-[url('/carousel_img_2.jpg')]",
+    },
+    {
+      name: "Vitor",
+      position: "Front end Developer",
+      src: "bg-[url('/carousel_img_2.jpg')]",
     },
   ],
 };

@@ -1,13 +1,12 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import GenericTitle from "./GenericTitle";
 import IOurTeamProps from "types/OurTeamProps";
-import CarouselPagination from "./CarouselPagination";
+import Pagination from "./Pagination";
+import useTouchEvent from "../hooks/useTouchEvent";
 
-const CreateNewOurTeam = (ourTeam: Array<{src: string; name: string; position: string;}>) => {
-  console.log(ourTeam);
+const CreateGroupOfPerson = (ourTeam: Array<{src: string; name: string; position: string;}>) => {
   const newOurTeam = [];
-  const { length } = ourTeam;
-  const numSubArrays = Math.ceil(length / 6);
+  const numSubArrays = Math.ceil(ourTeam.length / 6);
 
   for (let i = 0; i < numSubArrays; i++) {
     const startIndex = i * 6;
@@ -24,21 +23,24 @@ const OurTeam: FunctionComponent<IOurTeamProps> = ({
   ourTeam,
   fontStyle,
 }) => {
-  const [selectedLargeScreen, setSelectedLargeScreen] = useState(0);
-  const [selectedSmallScreen, setSelectedSmallScreen] = useState(0);
+  
+  const [selectedPageLargeScreen, setSelectedPageLargeScreen] = useState(0);
+  const [selectedPageSmallScreen, setSelectedPageSmallScreen] = useState(0);
+
+  const handleSelectedPageLargeScreen = (index: number) => setSelectedPageLargeScreen(index);
+  const handleSelectedPageSmallScreen = (index: number) => setSelectedPageSmallScreen(index);
+
   const [groupOfPerson, setGroupOfPerson] = useState(Array<{src: string; name: string; position: string;}>);
 
-  const handleSelectedPageLargeScreen = (index: number) => setSelectedLargeScreen(index);
-
-  const handleSelectedPageSmallScreen = (index: number) => setSelectedSmallScreen(index);
-
+  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPageSmallScreen, selectedPageSmallScreen, ourTeam.length);
+  
   useEffect(() => {
-    const newOurTeam = CreateNewOurTeam(ourTeam);
-    setGroupOfPerson(newOurTeam[selectedLargeScreen]);
-  }, [ourTeam, selectedLargeScreen]);
+    const groupOfPerson = CreateGroupOfPerson(ourTeam);
+    setGroupOfPerson(groupOfPerson[selectedPageLargeScreen]);
+  }, [ourTeam, selectedPageLargeScreen]);
   
   return (
-    <div className="flex justify-center w-full" data-cy="our-team">
+    <div className="flex justify-center w-full" data-cy="ourTeam">
       <div className="flex flex-col justify-center w-full max-w-6xl p-4">
         <GenericTitle
           genericTitle={genericTitle}
@@ -58,26 +60,43 @@ const OurTeam: FunctionComponent<IOurTeamProps> = ({
               )
             })}
           </div>
-          <CarouselPagination
-            numberOfPages={CreateNewOurTeam(ourTeam).length}
-            selectedPage={selectedLargeScreen}
+          <Pagination
+            numberOfPages={CreateGroupOfPerson(ourTeam).length}
+            selectedPage={selectedPageLargeScreen}
             handleCallback={handleSelectedPageLargeScreen}
           />
         </div>
 
-        <div className="flex flex-col mb-10 md:hidden">
-          <div className="grid grid-cols-1">
-            <div className="flex items-center mt-16 text-start">
-              <div className={`${ourTeam[selectedSmallScreen].src} bg-no-repeat bg-center bg-cover rounded-full w-[126px] h-[126px]`} /> 
-              <div className="ml-5">
-                <div className="font-semibold text-mobbase">{ourTeam[selectedSmallScreen].name}</div>
-                <div className="font-normal text-mobxs">{ourTeam[selectedSmallScreen].position}</div>
-              </div>
+        <div
+          className="flex flex-col mb-10 md:hidden"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+
+          <div className="w-full h-full mt-8 overflow-hidden md:hidden">
+            <div
+              className="flex items-center w-full h-full transition-transform delay-200 text-start"
+              style={{
+                transform: `translateX(${-selectedPageSmallScreen * 100}%)`,
+              }}
+            >
+              {ourTeam.map((person, index) => {
+                return (
+                  <div key={index} className="flex items-center flex-shrink-0 w-full h-full">
+                    <div className={`${person.src} bg-no-repeat bg-center bg-cover rounded-full w-[126px] h-[126px] flex-shrink-0`} /> 
+                    <div className="ml-5">
+                      <div className="font-semibold text-mobbase">{person.name}</div>
+                      <div className="font-normal text-mobxs">{person.position}</div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-          <CarouselPagination
+
+          <Pagination
             numberOfPages={ourTeam.length}
-            selectedPage={selectedSmallScreen}
+            selectedPage={selectedPageSmallScreen}
             handleCallback={handleSelectedPageSmallScreen}
           />
         </div>
