@@ -6,7 +6,7 @@ export default function AboutUs() {
   return (
     <Layout>
       <div
-        className={`w-screen md:h-[470px] h-56 bg-[url('/CarouselImg3.jpg')] bg-no-repeat bg-center bg-cover md:bg-fixed`}
+        className={`w-screen md:h-[470px] h-56 bg-[url('/carousel_img_3.jpg')] bg-no-repeat bg-center bg-cover md:bg-fixed`}
       />
       <div className="flex justify-center md:my-28 my-9">
         <div className="w-full max-w-6xl p-4">
@@ -20,39 +20,24 @@ Mattis vel lacus faucibus lorem semper egestas pulvinar magnis facilisis. Diam d
         </div>
       </div>
       <OurTeam
-        fontStyle="font-bold"
+        fontStyle="font-bold md:text-sm"
         genericTitle="Nosso Time"
         hasIcon={false}
         ourTeam={[
           {
-            name: "Siqueira",
+            name: "Mateus Siqueira Carneiro",
             position: "Backend Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
+            src: "bg-[url('/siqueirao.jpeg')]",
           },
           {
-            name: "Rambo",
-            position: "Backend Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
+            name: "Matheus Gomes de Paula",
+            position: "Frontend Developer",
+            src: "bg-[url('/gomes.jpg')]",
           },
           {
-            name: "Gomes",
-            position: "Backend Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
-          },
-          {
-            name: "João",
-            position: "Front end Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
-          },
-          {
-            name: "Pedro",
-            position: "Front end Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
-          },
-          {
-            name: "Vitor",
-            position: "Front end Developer",
-            src: "bg-[url('/CarouselImg2.jpg')]",
+            name: "Jhonatan Lourenço Rambo",
+            position: "Frontend Developer",
+            src: "bg-[url('/rambo.jpeg')] ",
           },
         ]}
       />
