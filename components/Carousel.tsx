@@ -1,6 +1,6 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import Button from "./Button";
-import CarouselPagination from "./CarouselPagination";
+import Pagination from "./Pagination";
 import ICarousel from "types/CarouselProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
@@ -55,7 +55,7 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
                 primary={props.primary}
               />
             </div>
-            <CarouselPagination
+            <Pagination
               handleCallback={handleSelectedPage}
               selectedPage={selectedPage}
               numberOfPages={3}
