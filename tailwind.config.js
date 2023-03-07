@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'aboutUs': "url('/AboutUs.png')"
+      }
     },
     colors: {
       transparent: 'transparent',

@@ -10,3 +10,25 @@ html,
 body {
   font-family: 'Saira', sans-serif;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #c0a0b9;
+    border-radius: 100vh;
+    border: 3px solid #c0a0b9;
+  }
+
+  // .scrollbar::-webkit-scrollbar-thumb:hover {
+  //   background: #c0a0b9;
+  // }
+}

@@ -47,6 +47,5 @@ Primary.args = {
   ],
   mode: "dark",
   primary: true,
-  size: "base",
   label: "Ver Mais",
 };

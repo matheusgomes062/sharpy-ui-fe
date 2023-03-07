@@ -6,10 +6,6 @@ export default interface IButtonProps {
    */
   primary?: boolean;
   /**
-   * How large should the button be?
-   */
-  size: 'sm' | 'base' | 'lg' | 'xl';
-  /**
    * Button contents
    */
   label: string;

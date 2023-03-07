@@ -20,4 +20,5 @@ Primary.args = {
   // title: 'Analista de dados',
   sectionTitle:  "Lorem Ipsum",
   description: "Lorem Ipsum",
+  mode: "dark"
 };

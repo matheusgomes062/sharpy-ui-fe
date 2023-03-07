@@ -20,9 +20,7 @@ Primary.args = {
   sectionTitle: "Quem Somos",
   mode: "dark",
   primary: true,
-  size: "base",
   label: "Saiba Mais",
   genericTitle: "Nosso Time",
   shortDescription: "Somos uma Software House com propósitos que vão além da tecnologia.",
-  aboutUsImagePath: "/AboutUs.png"
 };
