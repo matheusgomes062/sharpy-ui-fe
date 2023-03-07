@@ -8,7 +8,7 @@ export default function AboutUs() {
       <div
         className={`w-screen md:h-[470px] h-56 bg-[url('/carousel_img_3.jpg')] bg-no-repeat bg-center bg-cover md:bg-fixed`}
       />
-      <div className="flex justify-center md:my-28 my-9">
+      <div id="about-us" className="flex justify-center md:my-28 my-9">
         <div className="w-full max-w-6xl p-4">
           <SectionTitle
             mode="dark"
@@ -19,28 +19,30 @@ Mattis vel lacus faucibus lorem semper egestas pulvinar magnis facilisis. Diam d
           />
         </div>
       </div>
-      <OurTeam
-        fontStyle="font-bold md:text-sm"
-        genericTitle="Nosso Time"
-        hasIcon={false}
-        ourTeam={[
-          {
-            name: "Mateus Siqueira Carneiro",
-            position: "Backend Developer",
-            src: "bg-[url('/siqueirao.jpeg')]",
-          },
-          {
-            name: "Matheus Gomes de Paula",
-            position: "Frontend Developer",
-            src: "bg-[url('/gomes.jpg')]",
-          },
-          {
-            name: "Jhonatan Lourenço Rambo",
-            position: "Frontend Developer",
-            src: "bg-[url('/rambo.jpeg')] ",
-          },
-        ]}
-      />
+      <div id="our-team">
+        <OurTeam
+          fontStyle="font-bold md:text-sm"
+          genericTitle="Nosso Time"
+          hasIcon={false}
+          ourTeam={[
+            {
+              name: "Mateus Siqueira Carneiro",
+              position: "Backend Developer",
+              src: "bg-[url('/siqueirao.jpeg')]",
+            },
+            {
+              name: "Matheus Gomes de Paula",
+              position: "Frontend Developer",
+              src: "bg-[url('/gomes.jpg')]",
+            },
+            {
+              name: "Jhonatan Lourenço Rambo",
+              position: "Frontend Developer",
+              src: "bg-[url('/rambo.jpeg')] ",
+            },
+          ]}
+        />
+      </div>
     </Layout>
   );
 }
