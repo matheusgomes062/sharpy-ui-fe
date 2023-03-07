@@ -58,7 +58,7 @@ const DropdownHeader: FunctionComponent<IDropdownHeaderProps> = (props) => {
           <Image
             width={90}
             height={30}
-            src="/sharpy_logo.svg"
+            src="/sharpy-logo.svg"
             alt="sharpy SVG"
           />
         </Link>

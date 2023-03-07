@@ -39,7 +39,7 @@ const Navbar: FunctionComponent = () => {
             className="relative flex items-center w-20 md:w-28 h-7 md:h-8"
           >
             <Image
-              src="/sharpy_logo_wide.svg"
+              src="/sharpy-logo-wide.svg"
               alt="Sharpy Logo"
               fill
               sizes="(min-width: 60em) 24vw,

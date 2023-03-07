@@ -5,9 +5,9 @@ import ICarousel from "types/CarouselProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
 const carouselContent = [
-  ["bg-[url('/carousel_message_1.svg')]", "bg-[url('/carousel_img_1.jpg')]"],
-  ["bg-[url('/carousel_message_2.svg')]", "bg-[url('/carousel_img_2.jpg')]"],
-  ["bg-[url('/carousel_message_3.svg')]", "bg-[url('/carousel_img_3.jpg')]"],
+  ["bg-[url('/carousel-message-1.svg')]", "bg-[url('/carousel-img-1.jpg')]"],
+  ["bg-[url('/carousel-message-2.svg')]", "bg-[url('/carousel-img-2.jpg')]"],
+  ["bg-[url('/carousel-message-3.svg')]", "bg-[url('/carousel-img-3.jpg')]"],
 ];
 
 const Carousel: FunctionComponent<ICarousel> = (props) => {

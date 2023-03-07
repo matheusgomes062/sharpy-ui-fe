@@ -11,12 +11,12 @@ const SectionTitle: FunctionComponent<ISectionTitleProps> = ({
   description
 }) => {
 
-  const [modeState, setModeState] = useState<{color: string, svg: string}>({color: "", svg: "/white_logo.svg"});
+  const [modeState, setModeState] = useState<{color: string, svg: string}>({color: "", svg: "/white-logo.svg"});
 
   useEffect(() => {
     mode === "light"
-      ? setModeState({ color: "white", svg: "/white_logo.svg" })
-      : setModeState({ color: "black", svg: "/dark_logo.svg" });
+      ? setModeState({ color: "white", svg: "/white-logo.svg" })
+      : setModeState({ color: "black", svg: "/dark-logo.svg" });
   }, [mode])
 
   return (

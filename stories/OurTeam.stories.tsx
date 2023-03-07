@@ -37,27 +37,27 @@ Primary.args = {
     {
       name: "João",
       position: "Front end Developer",
-      src: "bg-[url('/carousel_img_2.jpg')]",
+      src: "bg-[url('/carousel-img-2.jpg')]",
     },
     {
       name: "Pedro",
       position: "Front end Developer",
-      src: "bg-[url('/carousel_img_2.jpg')]",
+      src: "bg-[url('/carousel-img-2.jpg')]",
     },
     {
       name: "Vitor",
       position: "Front end Developer",
-      src: "bg-[url('/carousel_img_2.jpg')]",
+      src: "bg-[url('/carousel-img-2.jpg')]",
     },
     {
       name: "Pedro",
       position: "Front end Developer",
-      src: "bg-[url('/carousel_img_2.jpg')]",
+      src: "bg-[url('/carousel-img-2.jpg')]",
     },
     {
       name: "Vitor",
       position: "Front end Developer",
-      src: "bg-[url('/carousel_img_2.jpg')]",
+      src: "bg-[url('/carousel-img-2.jpg')]",
     },
   ],
 };

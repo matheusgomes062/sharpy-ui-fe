@@ -6,7 +6,7 @@ export default function AboutUs() {
   return (
     <Layout>
       <div
-        className={`w-screen md:h-[470px] h-56 bg-[url('/carousel_img_3.jpg')] bg-no-repeat bg-center bg-cover md:bg-fixed`}
+        className={`w-screen md:h-[470px] h-56 bg-[url('/carousel-img-3.jpg')] bg-no-repeat bg-center bg-cover md:bg-fixed`}
       />
       <div id="about-us" className="flex justify-center md:my-28 my-9">
         <div className="w-full max-w-6xl p-4">
