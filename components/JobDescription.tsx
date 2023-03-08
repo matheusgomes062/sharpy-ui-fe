@@ -50,7 +50,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           <p className="font-semibold md:text-base text-mobh3">
             Responsabilidades:
           </p>
-          <ul>
+          <ul className="pl-3">
             {props.responsibilities.map((responsibility, index) => (
               <li key={index} className="font-normal md:text-xs text-mobsm">
                 • {responsibility}
@@ -63,7 +63,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           <p className="font-semibold md:text-base text-mobh3">
             Qualificações:
           </p>
-          <ul>
+          <ul className="pl-3">
             {props.qualifications.map((qualification, index) => (
               <li key={index} className="font-normal md:text-xs text-mobsm">
                 • {qualification}
@@ -74,7 +74,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
 
         <div className="mb-11">
           <p className="font-semibold md:text-base text-mobh3">Benefícios:</p>
-          <ul>
+          <ul className="pl-3">
             {props.benefits.map((benefit, index) => (
               <li key={index} className="font-normal md:text-xs text-mobsm">
                 • {benefit}
