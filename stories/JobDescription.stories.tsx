@@ -26,5 +26,4 @@ Primary.args = {
   benefits: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
   label: "Aplicar",
   primary: true,
-  size: "sm"
 };

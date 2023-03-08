@@ -4,17 +4,15 @@ import SectionTitle from "./SectionTitle";
 import Icon from "@mdi/react";
 import { mdiMapMarkerOutline, mdiBriefcaseOutline } from "@mdi/js";
 import Button from "./Button";
+import SmartLink from "./SmartLink";
 
 const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
   return (
-    <div
-      data-cy="job-description"
-      className="relative max-w-6xl p-4 m-auto md:max-xl:w-9/12 md:max-lg:w-11/12"
-    >
+    <div data-cy="jobDescription" className="w-full max-w-6xl p-4 m-auto">
       <SectionTitle sectionTitle={props.title} mode={props.mode} />
 
       <div className="flex flex-col">
-        <div className="flex mt-10 mb-8">
+        <div className="flex mb-5 md:mt-10 md:mb-8">
           <div className="w-6 h-6 md:h-10 md:w-10">
             <Icon
               path={mdiBriefcaseOutline}
@@ -24,7 +22,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           </div>
           <p className="font-normal md:text-sm text-mobsm">{props.journey}</p>
         </div>
-        <div className="flex mb-16">
+        <div className="flex md:mb-16 mb-7">
           <div className="w-6 h-6 md:h-10 md:w-10">
             <Icon
               path={mdiMapMarkerOutline}
@@ -39,13 +37,19 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
       </div>
 
       <div>
-        <div className="mb-16">
-          <p className="font-semibold md:text-base text-mobh3">Sobre a Sharpy:</p>
-          <p className="font-normal md:text-xs text-mobsm">{props.companyDescription}</p>
+        <div className="mb-8 md:mb-11">
+          <p className="font-semibold md:text-base text-mobh3">
+            Sobre a Sharpy:
+          </p>
+          <p className="font-normal md:text-xs text-mobsm">
+            {props.companyDescription}
+          </p>
         </div>
 
-        <div className="mb-16">
-          <p className="font-semibold md:text-base text-mobh3">Responsabilidades:</p>
+        <div className="mb-8 md:mb-11">
+          <p className="font-semibold md:text-base text-mobh3">
+            Responsabilidades:
+          </p>
           <ul>
             {props.responsibilities.map((responsibility, index) => (
               <li key={index} className="font-normal md:text-xs text-mobsm">
@@ -55,8 +59,10 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           </ul>
         </div>
 
-        <div className="mb-16">
-          <p className="font-semibold md:text-base text-mobh3">Qualificações:</p>
+        <div className="mb-8 md:mb-11">
+          <p className="font-semibold md:text-base text-mobh3">
+            Qualificações:
+          </p>
           <ul>
             {props.qualifications.map((qualification, index) => (
               <li key={index} className="font-normal md:text-xs text-mobsm">
@@ -66,7 +72,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           </ul>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-11">
           <p className="font-semibold md:text-base text-mobh3">Benefícios:</p>
           <ul>
             {props.benefits.map((benefit, index) => (
@@ -77,7 +83,16 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           </ul>
         </div>
       </div>
-      <Button label={props.label} size={props.size} primary={props.primary} />
+      <Button label={props.label} primary={props.primary} />
+      <div className="mt-8 mb-12">
+        <SmartLink
+          href="/"
+          label="Compartilhar oportunidade"
+          mode="dark"
+          type="url"
+          underline={true}
+        />
+      </div>
     </div>
   );
 };
