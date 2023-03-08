@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import ICareersProps from "types/CareersProps";
+import ICareersSectionProps from "types/CareersSectionProps";
 import JobOpportunityCard from "./JobOpportunityCard";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
@@ -7,7 +7,16 @@ import Button from "./Button";
 /**
  * Button component for user interaction
  */
-const CareersSection: FunctionComponent<ICareersProps> = ({ jobOpportunities, label, mode, sectionTitle, description, onClick, primary, ...props}) => {
+const CareersSection: FunctionComponent<ICareersSectionProps> = ({
+  jobOpportunities,
+  label,
+  mode,
+  sectionTitle,
+  description,
+  onClick,
+  primary,
+  ...props
+}) => {
   return (
     <div
       className="flex justify-center w-full p-4 mt-10 mb-10 md:mt-24 md:mb-24"
