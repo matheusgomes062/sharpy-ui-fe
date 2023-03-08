@@ -7,7 +7,7 @@ import Button from "./Button";
 /**
  * Button component for user interaction
  */
-const Careers: FunctionComponent<ICareersProps> = ({ jobOpportunities, label, mode, sectionTitle, description, onClick, primary, ...props}) => {
+const CareersSection: FunctionComponent<ICareersProps> = ({ jobOpportunities, label, mode, sectionTitle, description, onClick, primary, ...props}) => {
   return (
     <div
       className="flex justify-center w-full p-4 mt-10 mb-10 md:mt-24 md:mb-24"
@@ -42,4 +42,4 @@ const Careers: FunctionComponent<ICareersProps> = ({ jobOpportunities, label, mo
   );
 };
 
-export default Careers;
+export default CareersSection;
