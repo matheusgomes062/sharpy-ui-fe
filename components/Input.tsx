@@ -33,7 +33,7 @@ const Input: FunctionComponent<IInputProps> = ({
 
   return (
     <div
-      className="relative flex items-center justify-between h-12 p-2 border-2 border-solid group w-80 max-h-12 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1 sm:max-md:w-full"
+      className="relative flex items-center justify-between h-12 p-2 border-2 border-solid group w-full max-h-12 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
       {...props}
     >
       <>
