@@ -1,6 +1,6 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import ICareersProps from "types/CareersProps";
-import CarouselPagination from "./CarouselPagination";
+import Pagination from "./Pagination";
 import useTouchEvent from "../hooks/useTouchEvent";
 import Input from './Input'
 import Dropdown from './Dropdown'
@@ -84,7 +84,7 @@ const Careers: FunctionComponent<ICareersProps> = ({
               />
             ))}
           </div>
-          <CarouselPagination
+          <Pagination
             numberOfPages={CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage).length}
             selectedPage={selectedPage}
             handleCallback={handleSelectedPage}
