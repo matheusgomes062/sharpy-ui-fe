@@ -3,7 +3,6 @@ import StatisticBlock from "@/components/StatisticBlock";
 import AboutUs from "@/components/AboutUs";
 import SolutionsSection from "@/components/SolutionsSection";
 import Careers from "@/components/Careers";
-import ContactUs from "@/components/ContactUs";
 import Layout from "@/components/Layout";
 
 export default function Welcome() {
@@ -27,6 +26,7 @@ export default function Welcome() {
         label="Saiba Mais"
         genericTitle="Nosso Time"
         shortDescription="Somos uma Software House com propósitos que vão além da tecnologia."
+        hasIcon={true}
       />
       <SolutionsSection
         sectionTitle="Soluções"
@@ -86,13 +86,6 @@ export default function Welcome() {
         mode="dark"
         primary={true}
         label="Ver Mais"
-      />
-      <ContactUs
-        title="Fale Conosco"
-        description="Formas de entrar em contato conosco"
-        email="teste@sharpy.com"
-        phone="+55 11 9876-5555"
-        address="Rua Foz de São José, 99, BR"
       />
     </Layout>
   );

@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from "react";
 import SolutionsCard from "./SolutionsCard";
 import SectionTitle from "./SectionTitle";
-import CarouselPagination from "./CarouselPagination";
+import Pagination from "./Pagination";
 import ISolutionsSectionProps from "types/SolutionsSectionProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
@@ -55,7 +55,7 @@ const SolutionsSection: FunctionComponent<ISolutionsSectionProps> = ({ mode, sec
                   ))}
                 </div>
               </div>
-              <CarouselPagination
+              <Pagination
                 selectedPage={selectedPage}
                 numberOfPages={solutions.length}
                 handleCallback={handleSelectedPage}

@@ -1,11 +1,14 @@
 export default interface IGenericTitle {
   /**
- * Title of the component
- */
+   * Title of the component
+   */
   genericTitle: string;
   /**
- * style of the font used in title
- */
+   * style of the font used in title
+   */
   fontStyle?: string;
-  
+  /**
+   * GericTitle has arrow icon?
+   */
+  hasIcon: boolean;
 }

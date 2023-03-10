@@ -3,6 +3,7 @@ import SectionTitle from "./SectionTitle";
 import IAboutUs from "types/AboutUsProps";
 import Button from "./Button";
 import GenericTitle from "./GenericTitle";
+import Link from "next/link";
 
 const AboutUs: FunctionComponent<IAboutUs> = ({
   sectionTitle,
@@ -11,6 +12,7 @@ const AboutUs: FunctionComponent<IAboutUs> = ({
   label,
   genericTitle,
   shortDescription,
+  hasIcon,
   ...props
 }) => {
   return (
@@ -32,9 +34,13 @@ const AboutUs: FunctionComponent<IAboutUs> = ({
           <div className="flex-row w-full pt-0 p-7 place-self-center md:p-0">
             <p className="mt-8 lg:mt-0 mb-7">{shortDescription}</p>
             <div className="mb-12 lg:mb-20">
-              <Button label={label} primary={primary} />
+              <Link href="/about#about-us">
+                <Button label={label} primary={primary} />
+              </Link>
             </div>
-            <GenericTitle genericTitle={genericTitle} />
+            <Link href="/about#our-team">
+              <GenericTitle genericTitle={genericTitle} hasIcon={hasIcon} />
+            </Link>
           </div>
         </div>
       </div>
