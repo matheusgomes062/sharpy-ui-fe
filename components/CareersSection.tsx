@@ -21,7 +21,7 @@ const CareersSection: FunctionComponent<ICareersSectionProps> = ({
     <div
       className="flex justify-center w-full p-4 mt-10 mb-10 md:mt-24 md:mb-24"
       {...props}
-      data-cy="careers"
+      data-cy="careersSection"
     >
       <div className="flex flex-col justify-center max-w-6xl">
         <SectionTitle
