@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
-import ICarouselPaginationProps from "types/CarouselPaginationProps";
+import IPaginationProps from "types/PaginationProps";
 
-const CarouselPagination: FunctionComponent<ICarouselPaginationProps> = (props) => {
+const Pagination: FunctionComponent<IPaginationProps> = (props) => {
   const colorElement = (index: number) => props.selectedPage === index ? "orange" : "gray";
 
   const emitSelectedPage = (index: number) => props.handleCallback(index);
@@ -21,4 +21,4 @@ const CarouselPagination: FunctionComponent<ICarouselPaginationProps> = (props) 
   );
 };
 
-export default CarouselPagination;
+export default Pagination;

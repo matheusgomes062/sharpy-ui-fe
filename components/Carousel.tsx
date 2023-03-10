@@ -1,13 +1,13 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import Button from "./Button";
-import CarouselPagination from "./CarouselPagination";
+import Pagination from "./Pagination";
 import ICarousel from "types/CarouselProps";
 import useTouchEvent from "../hooks/useTouchEvent";
 
 const carouselContent = [
-  ["bg-[url('/CarouselMessage1.svg')]", "bg-[url('/CarouselImg1.jpg')]"],
-  ["bg-[url('/CarouselMessage2.svg')]", "bg-[url('/CarouselImg2.jpg')]"],
-  ["bg-[url('/CarouselMessage3.svg')]", "bg-[url('/CarouselImg3.jpg')]"],
+  ["bg-[url('/carousel-message-1.svg')]", "bg-[url('/carousel-img-1.jpg')]"],
+  ["bg-[url('/carousel-message-2.svg')]", "bg-[url('/carousel-img-2.jpg')]"],
+  ["bg-[url('/carousel-message-3.svg')]", "bg-[url('/carousel-img-3.jpg')]"],
 ];
 
 const Carousel: FunctionComponent<ICarousel> = (props) => {
@@ -55,7 +55,7 @@ const Carousel: FunctionComponent<ICarousel> = (props) => {
                 primary={props.primary}
               />
             </div>
-            <CarouselPagination
+            <Pagination
               handleCallback={handleSelectedPage}
               selectedPage={selectedPage}
               numberOfPages={3}

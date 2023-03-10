@@ -17,4 +17,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   genericTitle: "Lorem Ipsum",
   fontStyle: "font-bold",
+  hasIcon: true
 };

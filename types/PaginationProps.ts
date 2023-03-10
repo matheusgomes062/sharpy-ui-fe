@@ -1,4 +1,4 @@
-export default interface ICarouselPaginationProps {
+export default interface IPaginationProps {
   /**
    * Parameter that informs the pagination component which index is selected.
    */
