@@ -10,7 +10,7 @@ const Icons = {
 };
 
 function show(text: string) {
-  return <p className="fixed w-64 truncate opacity-40">{text}</p>;
+  return <p className="w-64 truncate pointer-events-none opacity-40">{text}</p>;
 }
 
 const Input: FunctionComponent<IInputProps> = ({
@@ -25,7 +25,7 @@ const Input: FunctionComponent<IInputProps> = ({
     target: { value: React.SetStateAction<string> };
   }) => setValue(event.target.value);
 
-  const shouldOpacityBeZero = () => type === "file" && "opacity-0 max-h-6";
+  const shouldOpacityBeZero = () => type === "file" && "opacity-0 max-h-6 absolute";
 
   const isTypeOfFile = () => type === "file" && true;
 
@@ -33,7 +33,7 @@ const Input: FunctionComponent<IInputProps> = ({
 
   return (
     <div
-      className="relative flex items-center justify-between h-12 p-2 border-2 border-solid group w-full max-h-12 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
+      className="relative flex items-center justify-between w-full h-12 p-2 border-2 border-solid group max-h-12 border-primary-purple hover:border-primary-orange hover:outline-primary-orange hover:outline hover:outline-1"
       {...props}
     >
       <>
