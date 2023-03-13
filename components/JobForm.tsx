@@ -71,7 +71,7 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
           <div className="w-full mb-4 md:mb-8">
             <Input
               placeholder={inputEmailPlaceholder}
-              type="text"
+              type="email"
               icon="none"
             />
           </div>
