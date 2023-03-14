@@ -24,11 +24,13 @@ const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({ ...prop
           <Button primary={true} label={props.buttonLabel} />
         </div>
         <div className="flex flex-wrap mt-10">
-          <Input
-            placeholder={props.inputPlaceholder}
-            type="text"
-            icon="magnify"
-          />
+          <div className="w-full md:w-80">
+            <Input
+              placeholder={props.inputPlaceholder}
+              type="text"
+              icon="magnify"
+            />
+          </div>
           <div className="sm:max-md:mt-4 sm:max-md:ml-0 md:max-4k:ml-4 sm:max-md:w-full">
             <Dropdown
               placeholder={props.dropDownPlaceholder}
