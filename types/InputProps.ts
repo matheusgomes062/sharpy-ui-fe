@@ -6,7 +6,7 @@ export default interface IInputProps {
   /**
    * Input type
    */
-  type: 'text' | 'file';
+  type: 'text' | 'file' | 'email';
   /**
    * Input type
    */
