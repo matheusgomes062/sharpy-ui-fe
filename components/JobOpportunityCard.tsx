@@ -28,7 +28,7 @@ const JobOpportunityCard: FunctionComponent<IJobOpportunityCardProps> = (
             {vacancyCardProps.modality}, {vacancyCardProps.country}
           </p>
         </div>
-        <p className="text-lg font-bold md:text-base text-mobh3">
+        <p className="font-bold md:text-base text-mobh3">
           {vacancyCardProps.jobOpportunityCardTitle}
         </p>
       </div>
