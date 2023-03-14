@@ -1,7 +1,8 @@
 import { FunctionComponent, useState } from "react";
 import Icon from "@mdi/react";
 import Button from "./Button";
-import SolutionsCardProps from "../types/SolutionsCardProps"
+import SolutionsCardProps from "../types/SolutionsCardProps";
+import Link from "next/link";
 import { mdiCellphoneLink, mdiApplicationBracketsOutline, mdiMonitorScreenshot } from "@mdi/js";
 
 const icons = {
@@ -14,10 +15,6 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (props) => {
   const [borderStyle, setBorderStyle] = useState('border-primary-purple');
 
   const changeBorderStyle = (style: string) => setBorderStyle(style);
-
-  const goToSolutionPage = () => {
-    //TODO: When Jobs page is built finish this function. Should redirect to Jobs page
-  };
 
   return (
     <div
@@ -43,11 +40,9 @@ const SolutionsCard: FunctionComponent<SolutionsCardProps> = (props) => {
           }
           onMouseLeave={() => changeBorderStyle("border-primary-purple")}
         >
-          <Button
-            primary={true}
-            label="Saiba mais"
-            onClick={goToSolutionPage}
-          />
+          <Link href="/solutions">
+            <Button primary={true} label="Saiba mais" />
+          </Link>
         </div>
       </div>
     </div>
