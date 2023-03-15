@@ -2,16 +2,13 @@ import Carousel from "@/components/Carousel";
 import StatisticBlock from "@/components/StatisticBlock";
 import AboutUs from "@/components/AboutUs";
 import SolutionsSection from "@/components/SolutionsSection";
-import Careers from "@/components/Careers";
+import CareersSection from "@/components/CareersSection";
 import Layout from "@/components/Layout";
 
 export default function Welcome() {
   return (
     <Layout>
-      <Carousel
-        label="Conheça a Sharpy"
-        primary={false}
-      />
+      <Carousel label="Conheça a Sharpy" primary={false} />
       <StatisticBlock
         statistic={[
           [78, "Lorem ipsum"],
@@ -53,7 +50,7 @@ export default function Welcome() {
           },
         ]}
       />
-      <Careers
+      <CareersSection
         sectionTitle="Carreiras"
         description="Somos uma Software House com propósitos que vão além da tecnologia. Por isso, nosso time é multidisciplinar."
         jobOpportunities={[
