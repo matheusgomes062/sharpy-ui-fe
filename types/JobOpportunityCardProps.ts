@@ -1,5 +1,9 @@
 export default interface IJobOpportunityCardProps {
   /**
+   * Id of the job
+   */
+  id: number;
+  /**
    * Title of the vacancy
    */
   jobOpportunityCardTitle: string;
