@@ -19,76 +19,91 @@ export const Primary = Template.bind({});
 Primary.args = {
   jobOpportunities: [
     {
+      id: 0,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 1,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 2,
       jobOpportunityCardTitle: "Gerente de Produto",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 2,
       jobOpportunityCardTitle: "Analista de dados",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 3,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 4,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 5,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 6,
       jobOpportunityCardTitle: "Gerente de Produto",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 7,
       jobOpportunityCardTitle: "Analista de dados",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 8,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 8,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 9,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 10,
       jobOpportunityCardTitle: "Gerente de Produto",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 11,
       jobOpportunityCardTitle: "Analista de dados",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 12,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
