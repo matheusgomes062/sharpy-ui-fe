@@ -5,6 +5,7 @@ import Icon from "@mdi/react";
 import { mdiMapMarkerOutline, mdiBriefcaseOutline } from "@mdi/js";
 import Button from "./Button";
 import SmartLink from "./SmartLink";
+import Link from "next/link";
 
 const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
   return (
@@ -83,7 +84,9 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
           </ul>
         </div>
       </div>
-      <Button label={props.label} primary={props.primary} />
+      <Link href={`/apply/${props.id}`}>
+        <Button label={props.label} primary={props.primary} />
+      </Link>
       <div className="mt-8 mb-12">
         <SmartLink
           href="/"
