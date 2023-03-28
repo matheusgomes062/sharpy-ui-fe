@@ -28,6 +28,14 @@ async function main() {
             coverLetter: 'test',
             acceptedPrivacyPolitics: true,
           },
+          {
+            email: 'siqueira@gmail.com',
+            name: 'Mateus',
+            surname: 'Siqueira',
+            cv: 'test.url',
+            coverLetter: 'test',
+            acceptedPrivacyPolitics: true,
+          },
         ]
       },
     },
