@@ -3,6 +3,10 @@ import ISectionTitleProps from "./SectionTitleProps";
 
 export default interface IJobDescription extends ISectionTitleProps, IButtonProps {
   /**
+   * Id of the job
+   */
+  id: number;
+  /**
    * Title of the job
    */
   title: string;

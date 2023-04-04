@@ -13,31 +13,31 @@ const menuItems = [
     submenu: [
       {
         title: "Nosso time",
-        url: "about",
+        url: "/about",
       },
     ],
   },
   {
     title: "Soluções",
-    url: "solutions",
+    url: "/solutions",
     submenu: [
       {
         title: "Aplicações personalizadas",
-        url: "solutions",
+        url: "/solutions",
       },
       {
         title: "Consultoria em desenvolvimento",
-        url: "solutions",
+        url: "/solutions",
       },
       {
         title: "Soluções Sharpy",
-        url: "solutions",
+        url: "/solutions",
       },
     ],
   },
   {
     title: "Carreiras",
-    url: "careers",
+    url: "/careers/all-jobs",
   },
   {
     title: "Fale Conosco",

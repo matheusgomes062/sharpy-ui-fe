@@ -20,26 +20,31 @@ Primary.args = {
   inputPlaceholder: "Buscar Oportunidade",
   jobOpportunities: [
     {
+      id: 0,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações Frontend",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 1,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 2,
       jobOpportunityCardTitle: "Gerente de Produto",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 3,
       jobOpportunityCardTitle: "Analista de dados",
       country: "Brasil",
       modality: "Remoto",
     },
     {
+      id: 4,
       jobOpportunityCardTitle: "Desenvolvedor(a) de aplicações FullStack",
       country: "Brasil",
       modality: "Remoto",
