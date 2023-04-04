@@ -3,6 +3,7 @@ import ICareersSectionProps from "types/CareersSectionProps";
 import JobOpportunityCard from "./JobOpportunityCard";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
+import Link from "next/link";
 
 /**
  * Button component for user interaction
@@ -39,12 +40,14 @@ const CareersSection: FunctionComponent<ICareersSectionProps> = ({
           ))}
         </div>
         <div>
-          <Button
-            label={label}
-            primary={primary}
-            onClick={onClick}
-            key={label}
-          />
+          <Link href="/careers/all-jobs">
+            <Button
+              label={label}
+              primary={primary}
+              onClick={onClick}
+              key={label}
+            />
+          </Link>
         </div>
       </div>
     </div>

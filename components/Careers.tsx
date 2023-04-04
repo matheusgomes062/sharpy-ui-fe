@@ -1,4 +1,4 @@
-import { FunctionComponent, useState, useEffect } from "react";
+import { FunctionComponent, useState, useEffect, useRef } from "react";
 import ICareersProps from "types/CareersProps";
 import Pagination from "./Pagination";
 import useTouchEvent from "../hooks/useTouchEvent";
@@ -26,43 +26,47 @@ const Careers: FunctionComponent<ICareersProps> = ({
   inputPlaceholder,
   dropDownPlaceholder
 }) => {
-  
-  const [selectedPage, setSelectedPage] = useState(0);
+  const windowWidth = typeof window !== "undefined" && window.innerWidth;
 
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
+  const [selectedPage, setSelectedPage] = useState(0);
 
   const handleSelectedPage = (index: number) => setSelectedPage(index);
 
   const [groupOfJobs, setGroupOfJobs] = useState(Array<IJobOpportunityCardProps>);
-
-  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, groupOfJobs.length);
-
-  const getMaxJobsPerPage = window.innerWidth <= 768 ? 6 : 9;
   
+  const getMaxJobsPerPage = windowWidth <= 768 ? 6 : 9;
+
+  const totalPages = () => { return CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage).length; }
+
+  const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, totalPages());
+
   useEffect(() => {
-    const groupOfJobs = CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage);
-    setGroupOfJobs(groupOfJobs[selectedPage]);
-  }, [getMaxJobsPerPage, jobOpportunities, selectedPage, isSmallScreen]);
+    if (jobOpportunities) {
+      const groupOfJobs = CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage);
+      setGroupOfJobs(groupOfJobs[selectedPage]);
+    }
+  }, [getMaxJobsPerPage, jobOpportunities, selectedPage]);
   
   useEffect(() => {
     const updateWindowWidth = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
       setSelectedPage(0);
     }
-
+    
     window.addEventListener("resize", updateWindowWidth);
     return () => window.removeEventListener("resize", updateWindowWidth);
   }, []);
   
   return (
-    <div className="flex justify-center w-full mt-7 md:mt-20" data-cy="careers">
+    <div className="flex justify-center w-full" data-cy="careers">
       <div className="flex flex-col justify-center w-full max-w-6xl p-4">
         <div className="flex flex-wrap">
-          <Input
-            placeholder={inputPlaceholder}
-            type="text"
-            icon="magnify"
-          />
+          <div className="w-full md:w-80 max-h-80">
+            <Input
+              placeholder={inputPlaceholder}
+              type="text"
+              icon="magnify"
+            />
+          </div>
           <div className="sm:max-md:mt-4 sm:max-md:ml-0 md:max-4k:ml-4 sm:max-md:w-full">
             <Dropdown
               placeholder={dropDownPlaceholder}
@@ -76,8 +80,8 @@ const Careers: FunctionComponent<ICareersProps> = ({
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <div className="flex flex-wrap w-full mt-8 mb-10">
-            {groupOfJobs.map((job, index) => (
+          <div className="flex flex-wrap w-full mt-8 mb-5 md:mb-10">
+            {groupOfJobs != undefined &&  groupOfJobs.map((job, index) => (
               <JobOpportunityCard
                 key={index}
                 {...job}
