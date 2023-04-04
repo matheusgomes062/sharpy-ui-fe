@@ -5,7 +5,7 @@ async function main() {
     where: { id: 1 },
     update: {},
     create: {
-      role: 'Software Engineer',
+      role: 'Banco de Talentos',
       isRemote: true,
       country: 'Brazil',
       description: 'Work as always',
