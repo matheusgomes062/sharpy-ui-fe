@@ -1,4 +1,5 @@
 const path = require('path')
+require("dotenv").config();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,6 +7,11 @@ const nextConfig = {
   swcMinify: true,
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
+  },
+  env: {
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    DATABASE_URL: process.env.DATABASE_URL,
+    SUPABASE_KEY: process.env.SUPABASE_KEY,
   },
   i18n: {
     // These are all the locales you want to support in

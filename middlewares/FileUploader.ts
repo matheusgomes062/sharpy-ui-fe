@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-require("dotenv").config();
 
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
   throw new Error("SUPABASE_URL ou SUPABASE_KEY não foi definido no ambiente");
