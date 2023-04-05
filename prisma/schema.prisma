@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Prospects {
+  id                      Int     @id @default(autoincrement())
+  email                   String  @unique
+  name                    String
+  surname                 String
+  cv                      String
+  coverLetter             String?
+  acceptedPrivacyPolitics Boolean
+  role                    Role    @relation(fields: [roleId], references: [id])
+  roleId                  Int
+}
+
+model Role {
+  id          Int     @id @default(autoincrement())
+  role        String
+  isRemote    Boolean @default(true)
+  country     String
+  description String
+  area        String
+  prospects   Prospects[]
+}
