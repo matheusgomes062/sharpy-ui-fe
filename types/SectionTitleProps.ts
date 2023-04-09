@@ -8,7 +8,7 @@ export default interface ISectionTitleProps {
    */
   description?: string;
   /**
- * Mode
- */
-  mode: "light" | "dark";
+   * Dark Mode
+   */
+    darkMode: boolean;
 }

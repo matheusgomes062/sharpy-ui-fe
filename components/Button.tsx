@@ -5,11 +5,11 @@ import IButtonProps from "types/ButtonProps";
  * Button component for user interaction
  */
 const Button: FunctionComponent<IButtonProps> = ({
-  primary,
+  showPrimaryButton,
   label,
   ...props
 }) => {
-  const mode = primary
+  const mode = showPrimaryButton
     ? "bg-primary-purple hover:bg-primary-orange"
     : "bg-primary-orange hover:bg-primary-purple";
 

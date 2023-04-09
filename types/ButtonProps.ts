@@ -4,7 +4,7 @@ export default interface IButtonProps {
    * 
    * true = purple | false = orange.
    */
-  primary?: boolean;
+  showPrimaryButton?: boolean;
   /**
    * Button contents
    */

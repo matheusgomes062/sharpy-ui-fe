@@ -10,5 +10,5 @@ export default interface IGenericTitle {
   /**
    * GericTitle has arrow icon?
    */
-  hasIcon: boolean;
+  showIcon: boolean;
 }

@@ -9,12 +9,12 @@ import AboutUsProps from "types/AboutUsProps";
 const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
   const {
     sectionTitle,
-    mode,
-    primary,
-    label,
+    darkMode,
+    showPrimaryButton,
+    primaryButtonLabel,
     genericTitle,
     shortDescription,
-    hasIcon
+    showIcon
   } = props;
 
   return (
@@ -27,7 +27,7 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
         className="flex flex-col justify-center w-full max-w-6xl"
       >
         <div className="pb-0 p-7 md:p-0">
-          <SectionTitle sectionTitle={sectionTitle} mode={mode} />
+          <SectionTitle sectionTitle={sectionTitle} darkMode={darkMode} />
         </div>
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div
@@ -37,11 +37,11 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
             <p className="mt-8 lg:mt-0 mb-7">{shortDescription}</p>
             <div className="mb-12 lg:mb-20">
               <Link href="/about#about-us">
-                <Button label={label} primary={primary} />
+                <Button label={primaryButtonLabel} showPrimaryButton={showPrimaryButton} />
               </Link>
             </div>
             <Link href="/about#our-team">
-              <GenericTitle genericTitle={genericTitle} hasIcon={hasIcon} />
+              <GenericTitle genericTitle={genericTitle} showIcon={showIcon} />
             </Link>
           </div>
         </div>

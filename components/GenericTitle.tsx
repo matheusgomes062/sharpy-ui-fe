@@ -3,7 +3,7 @@ import Icon from "@mdi/react";
 import { mdiArrowRight } from "@mdi/js";
 import IGenericTitle from "types/GenericTitle";
 
-const GenericTitle: FunctionComponent<IGenericTitle> = ({genericTitle, fontStyle, hasIcon }) => {
+const GenericTitle: FunctionComponent<IGenericTitle> = ({genericTitle, fontStyle, showIcon }) => {
   const redirect = () => {
     // TODO: redirect to about page
     return 
@@ -13,7 +13,7 @@ const GenericTitle: FunctionComponent<IGenericTitle> = ({genericTitle, fontStyle
     <div data-cy="generic-title">
       <div className="flex cursor-pointer group" onClick={redirect}>
         <h1 className={`${fontStyle} mr-3`}>{genericTitle}</h1>
-        {hasIcon && (
+        {showIcon && (
           <Icon
             path={mdiArrowRight}
             size={1}

@@ -7,17 +7,17 @@ import Image from "next/image";
  */
 const SectionTitle: FunctionComponent<ISectionTitleProps> = ({
   sectionTitle,
-  mode,
+  darkMode,
   description
 }) => {
 
   const [modeState, setModeState] = useState<{color: string, svg: string}>({color: "", svg: "/white-logo.svg"});
 
   useEffect(() => {
-    mode === "light"
+    darkMode === false
       ? setModeState({ color: "white", svg: "/white-logo.svg" })
       : setModeState({ color: "black", svg: "/dark-logo.svg" });
-  }, [mode])
+  }, [darkMode])
 
   return (
     <div className="flex flex-col">

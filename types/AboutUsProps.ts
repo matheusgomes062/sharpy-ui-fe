@@ -1,9 +1,9 @@
 export default interface AboutUsProps {
   sectionTitle: string;
-  mode: "light" | "dark";
-  primary: boolean;
-  label: string;
+  darkMode: boolean;
+  showPrimaryButton: boolean;
+  primaryButtonLabel: string;
   genericTitle: string;
   shortDescription: string;
-  hasIcon: boolean;
+  showIcon: boolean;
 }
