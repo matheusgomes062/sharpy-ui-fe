@@ -1,20 +1,22 @@
 import { FunctionComponent } from "react";
-import SectionTitle from "./SectionTitle";
-import AboutUsProps from "types/AboutUsProps";
-import Button from "./Button";
-import GenericTitle from "./GenericTitle";
 import Link from "next/link";
 
-const AboutUs: FunctionComponent<AboutUsProps> = ({
-  sectionTitle,
-  mode,
-  primary,
-  label,
-  genericTitle,
-  shortDescription,
-  hasIcon,
-  ...props
-}) => {
+import SectionTitle from "./SectionTitle";
+import Button from "./Button";
+import GenericTitle from "./GenericTitle";
+import AboutUsProps from "types/AboutUsProps";
+
+const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
+  const {
+    sectionTitle,
+    mode,
+    primary,
+    label,
+    genericTitle,
+    shortDescription,
+    hasIcon
+  } = props;
+
   return (
     <div
       className="flex justify-center w-full mt-10 mb-10 md:p-4 md:mt-24 md:mb-24"
