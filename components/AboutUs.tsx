@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
 import SectionTitle from "./SectionTitle";
-import IAboutUs from "types/AboutUsProps";
+import AboutUsProps from "types/AboutUsProps";
 import Button from "./Button";
 import GenericTitle from "./GenericTitle";
 import Link from "next/link";
 
-const AboutUs: FunctionComponent<IAboutUs> = ({
+const AboutUs: FunctionComponent<AboutUsProps> = ({
   sectionTitle,
   mode,
   primary,
