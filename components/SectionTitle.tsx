@@ -20,7 +20,7 @@ const SectionTitle: FunctionComponent<ISectionTitleProps> = ({
   }, [darkMode])
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" data-cy="section-title" >
       <div className="flex flex-row mb-6 w-100">
         <div className="relative w-8 md:w-12">
           <Image

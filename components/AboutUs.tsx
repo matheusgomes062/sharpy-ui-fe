@@ -27,17 +27,17 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
         className="flex flex-col justify-center w-full max-w-6xl"
       >
         <div className="pb-0 p-7 md:p-0">
-          <SectionTitle sectionTitle={sectionTitle} darkMode={darkMode} />
+          <SectionTitle sectionTitle={sectionTitle} darkMode={darkMode} data-cy="section-title"/>
         </div>
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div
             className={`w-full h-56 md:h-[350px] bg-aboutUs bg-no-repeat bg-center bg-cover relative`}
           />
           <div className="flex-row w-full pt-0 p-7 place-self-center md:p-0">
-            <p className="mt-8 lg:mt-0 mb-7">{shortDescription}</p>
+            <p className="mt-8 lg:mt-0 mb-7" data-cy="short-description">{shortDescription}</p>
             <div className="mb-12 lg:mb-20">
               <Link href="/about#about-us">
-                <Button label={primaryButtonLabel} showPrimaryButton={showPrimaryButton} />
+                <Button label={primaryButtonLabel} showPrimaryButton={showPrimaryButton} data-cy="about-us-button"/>
               </Link>
             </div>
             <Link href="/about#our-team">

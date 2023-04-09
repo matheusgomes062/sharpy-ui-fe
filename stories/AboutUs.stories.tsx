@@ -8,7 +8,7 @@ interface AboutUsStoryProps extends AboutUsProps {}
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "AboutUs/AboutUs",
+  title: "Pages/AboutUs",
   component: AboutUs,
 } as ComponentMeta<typeof AboutUs>;
 
