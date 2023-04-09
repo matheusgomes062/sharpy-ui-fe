@@ -18,7 +18,9 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
   } = props;
 
   return (
-    <div
+    <section
+      role="region"
+      aria-label="About Us"
       className="flex justify-center w-full mt-10 mb-10 md:p-4 md:mt-24 md:mb-24"
       {...props}
     >
@@ -26,11 +28,12 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
         data-cy="aboutUs"
         className="flex flex-col justify-center w-full max-w-6xl"
       >
-        <div className="pb-0 p-7 md:p-0">
+        <header className="pb-0 p-7 md:p-0">
           <SectionTitle sectionTitle={sectionTitle} darkMode={darkMode} data-cy="section-title"/>
-        </div>
+        </header>
         <div className="grid grid-cols-1 gap-x-11 md:grid-cols-2">
           <div
+            aria-hidden="true"
             className={`w-full h-56 md:h-[350px] bg-aboutUs bg-no-repeat bg-center bg-cover relative`}
           />
           <div className="flex-row w-full pt-0 p-7 place-self-center md:p-0">
@@ -46,7 +49,7 @@ const AboutUs: FunctionComponent<AboutUsProps> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
