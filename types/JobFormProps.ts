@@ -3,6 +3,10 @@ import ISmartLinkProps from "./SmartLinkProps";
 
 export default interface IJobFormProps extends ISectionTitleProps, ISmartLinkProps {
   /**
+   * Id of the Job
+   */
+  id: string | string[] | undefined;
+  /**
    * Placeholder for input name field
    */
   inputNamePlaceholder: string;

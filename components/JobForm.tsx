@@ -24,6 +24,7 @@ interface IFormState {
 }
 
 const JobForm: FunctionComponent<IJobFormProps> = ({
+  id,
   href,
   textAreaPlaceholder,
   inputEmailPlaceholder,
@@ -37,8 +38,6 @@ const JobForm: FunctionComponent<IJobFormProps> = ({
   primary,
 }) => {
   const router = useRouter();
-
-  const param = router.query.id;
 
   const [job, setJob] = useState<IJobOpportunityCardProps | null>(null);
 
@@ -58,20 +57,20 @@ const JobForm: FunctionComponent<IJobFormProps> = ({
 
   useEffect(() => {
     async function fetchJobs() {
-      const res = await fetch(`/api/get-role?id=${param}`);
+      const res = await fetch(`/api/get-role?id=${id}`);
 
       const json = await res.json();
 
       setJob(json);
 
-      typeof param === 'string' && setFormValues((prevState) => ({
+      typeof id === 'string' && setFormValues((prevState) => ({
         ...prevState,
-        roleId: parseInt(param),
+        roleId: parseInt(id),
       }));
     }
 
-    param !== undefined && fetchJobs();
-  }, [param]);
+    id !== undefined && fetchJobs();
+  }, [id]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.files && e.target.files.length > 0 && setFile(e.target.files[0]);
