@@ -6,11 +6,12 @@ import ICheckBoxProps from "types/CheckBoxProps";
 /**
  * CheckBox component for user interaction
  */
-const CheckBox: FunctionComponent<ICheckBoxProps> = ({ value, ...props }) => {
+const CheckBox: FunctionComponent<ICheckBoxProps> = ({ value, onChange, name, ...props }) => {
   const [isSelected, setIsSelected] = useState(false);
 
-  const handleChange = () => {
-    setIsSelected(!isSelected);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSelected(e.target.checked);
+    onChange && onChange(e);
   };
 
   const borderStyleOnChange = isSelected
@@ -30,6 +31,7 @@ const CheckBox: FunctionComponent<ICheckBoxProps> = ({ value, ...props }) => {
         role="checkbox"
         className="appearance-none cursor-pointer"
         onChange={handleChange}
+        name={name}
         value={value}
         {...props}
       />

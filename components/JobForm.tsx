@@ -8,8 +8,22 @@ import TextArea from "./TextArea";
 import CheckBox from "./CheckBox";
 import SmartLink from "./SmartLink";
 import Button from "./Button";
+import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/dist/client/router";
+import FileUploader from "middlewares/FileUploader";
 
-const jobForm: FunctionComponent<IJobFormProps> = ({
+interface IFormState {
+  name: string | undefined;
+  surname: string | undefined;
+  email: string | undefined;
+  acceptedPrivacyPolitics: boolean | undefined;
+  roleId: number | undefined;
+  cv: string | undefined | null;
+  coverLetter: string | undefined;
+}
+
+const JobForm: FunctionComponent<IJobFormProps> = ({
   href,
   textAreaPlaceholder,
   inputEmailPlaceholder,
@@ -20,15 +34,103 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
   policyAcceptanceText,
   type,
   underline,
-  jobCountry,
-  jobJourney,
-  jobModality,
-  jobTitle,
   primary,
 }) => {
+  const router = useRouter();
+
+  const param = router.query.id;
+
+  const [job, setJob] = useState<IJobOpportunityCardProps | null>(null);
+
+  const [file, setFile] = useState<File | null>(null);
+
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  const [formValues, setFormValues] = useState<IFormState>({
+    acceptedPrivacyPolitics: undefined,
+    cv: undefined,
+    email: undefined,
+    name: undefined,
+    surname: undefined,
+    coverLetter: undefined,
+    roleId: undefined,
+  });
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const res = await fetch(`/api/get-role?id=${param}`);
+
+      const json = await res.json();
+
+      setJob(json);
+
+      typeof param === 'string' && setFormValues((prevState) => ({
+        ...prevState,
+        roleId: parseInt(param),
+      }));
+    }
+
+    param !== undefined && fetchJobs();
+  }, [param]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.files && e.target.files.length > 0 && setFile(e.target.files[0]);
+  };
+
+  const uploadFile = async () => {
+    if (!file) return;
+
+    const url = await FileUploader(file, 'cv');
+    console.log(url)
+    setFormValues((prevState) => {
+      return {
+        ...prevState,
+        cv: url,
+      };
+    });
+  };
+
+  const createNewProspect = async () => {
+    await uploadFile();
+
+    setIsFormValid(true);
+  }
+
+  const handleInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const element = e.target;
+    const value = element.type === "checkbox" ? (element as HTMLInputElement).checked : element.value;
+    setFormValues((prevState) => ({
+      ...prevState,
+      [element.name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    const uploadProspect = async () => {
+      if (formValues.cv !== null && isFormValid) {
+        const res = await fetch("/api/create-prospect", {
+          body: JSON.stringify(formValues),
+          method: "POST",
+        }).then(() => {
+          router.push("/");
+        });
+      }
+    }
+
+    uploadProspect();
+  }, [formValues, isFormValid]);
+
+  if (!job) {
+    return null;
+  }
+
   return (
     <div data-cy="job-form" className="w-full max-w-6xl p-4 m-auto">
-      <SectionTitle sectionTitle={jobTitle} mode={mode} />
+      <SectionTitle sectionTitle={job.role} mode={mode} />
       <div className="flex flex-col">
         <div className="flex mb-5 md:mt-10 md:mb-8">
           <div className="w-6 h-6 md:h-10 md:w-10">
@@ -38,7 +140,7 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
               className="pr-1 fill-primary-orange"
             />
           </div>
-          <p className="font-normal md:text-sm text-mobsm">{jobJourney}</p>
+          <p className="font-normal md:text-sm text-mobsm">{job.journey}</p>
         </div>
         <div className="flex md:mb-16 mb-7">
           <div className="w-6 h-6 md:h-10 md:w-10">
@@ -49,7 +151,7 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
             />
           </div>
           <p className="font-normal md:text-sm text-mobsm">
-            {jobModality}, {jobCountry}
+            {job.modality}, {job.country}
           </p>
         </div>
       </div>
@@ -57,13 +159,21 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
       <div className="flex flex-col">
         <div className="flex flex-wrap justify-between md:space-x-8 md:flex-nowrap">
           <div className="w-full mb-4 md:mb-8">
-            <Input placeholder={inputNamePlaceholder} type="text" icon="none" />
+            <Input
+              placeholder={inputNamePlaceholder}
+              type="text"
+              icon="none"
+              name="name"
+              onChange={(e) => handleInputChange(e)}
+            />
           </div>
           <div className="w-full mb-4 md:mb-8">
             <Input
               placeholder={inputSurnamePlaceholder}
               type="text"
               icon="none"
+              name="surname"
+              onChange={(e) => handleInputChange(e)}
             />
           </div>
         </div>
@@ -73,20 +183,31 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
               placeholder={inputEmailPlaceholder}
               type="email"
               icon="none"
+              name="email"
+              onChange={(e) => handleInputChange(e)}
             />
           </div>
           <div className="w-full mb-4 md:mb-8">
-            <Input placeholder="CV" type="file" icon="trayArrowUp" />
+            <Input
+              placeholder="CV"
+              type="file"
+              icon="trayArrowUp"
+              name="file"
+              onChange={(e) => handleFileChange(e)}
+            />
           </div>
         </div>
         <TextArea
-          onChange={() => {
-            return;
-          }}
           textAreaPlaceholder={textAreaPlaceholder}
+          name="coverLetter"
+          onChange={(e) => handleInputChange(e)}
         />
         <div className="flex my-8 space-x-3 md:my-12">
-          <CheckBox value="" />
+          <CheckBox
+            value=""
+            onChange={(e) => handleInputChange(e)}
+            name="acceptedPrivacyPolitics"
+          />
           <div className="flex space-x-1">
             <span className="md:text-[20px] sm:text-[15px] my-auto">
               {policyAcceptanceText}
@@ -101,11 +222,15 @@ const jobForm: FunctionComponent<IJobFormProps> = ({
           </div>
         </div>
         <div>
-          <Button label="Aplicar" primary={primary} />
+          <Button
+            label="Aplicar"
+            primary={primary}
+            onClick={createNewProspect}
+          />
         </div>
       </div>
     </div>
   );
 };
 
-export default jobForm;
+export default JobForm;

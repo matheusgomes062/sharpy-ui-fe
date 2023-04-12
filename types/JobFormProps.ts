@@ -1,4 +1,3 @@
-import IButtonProps from "./ButtonProps";
 import ISectionTitleProps from "./SectionTitleProps";
 import ISmartLinkProps from "./SmartLinkProps";
 
@@ -20,26 +19,10 @@ export default interface IJobFormProps extends ISectionTitleProps, ISmartLinkPro
    */
   policyAcceptanceText: string;
   /**
-   * Title of the job
-   */
-  jobTitle: string;
-  /**
-   * Country of job
-   */
-  jobCountry: string;
-  /**
-   * Modality of job
-   */
-  jobModality: string;
-  /**
-   * What is the journey of the job? full time, part time, freelance?
-   */
-  jobJourney: string;
-  /**
    * Is button primary?
    */
   primary: boolean;
-    /**
+  /**
    * which is the placeholder of text area?
    */
   textAreaPlaceholder: string;
