@@ -1,6 +1,6 @@
 import { Role } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../prisma/client";
+import { prisma } from "../../prisma/client";
 
 async function getProspects(req: NextApiRequest, res: NextApiResponse<Role | null>) {
   try {

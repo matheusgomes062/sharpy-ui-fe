@@ -1,9 +1,13 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const globalForPrisma = global as unknown as {
+  prisma: PrismaClient | undefined;
+};
 
-process.on("beforeExit", () => {
-  prisma.$disconnect();
-});
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    log: ["query"],
+  });
 
-export default prisma;
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
