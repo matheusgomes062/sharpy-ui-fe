@@ -15,8 +15,6 @@ const Template: ComponentStory<typeof JobOpportunityCard> = (args) => <JobOpport
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  // title: 'Analista de dados',
-  jobOpportunityCardTitle: 'Desenvolvedor(a) de aplicações FullStack',
   country: 'Brasil',
   modality: 'Remoto'
 };

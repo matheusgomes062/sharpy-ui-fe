@@ -15,15 +15,9 @@ const Template: ComponentStory<typeof JobDescription> = (args) => <JobDescriptio
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  title: "Analista de dados",
-  country: "Brazil",
+  sectionTitleDescription: "Analista de dados",
   companyDescription:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Euismod in at eros, aliquam quis ornare faucibus. Metus volutpat, semper et sit volutpat iaculis. Non, penatibus quis eros cursus sit diam facilisi pellentesque. Vitae pharetra est nulla laoreet. Diam diam pulvinar ornare felis, dignissim praese",
-  modality: "Remoto",
-  journey: "Tempo Integral",
-  responsibilities: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
-  qualifications: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
-  benefits: ["Lorem ipsum", "Lorem ipsum", "Lorem ipsum"],
   label: "Aplicar",
   primary: true,
 };
