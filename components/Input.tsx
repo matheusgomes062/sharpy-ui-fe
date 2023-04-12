@@ -17,14 +17,15 @@ const Input: FunctionComponent<IInputProps> = ({
   placeholder,
   type,
   icon,
+  name,
   onChange,
   ...props
 }) => {
   const [value, setValue] = useState("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-    onChange && onChange(event.target);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+    onChange && onChange(e);
   };
 
   const shouldOpacityBeZero = () => type === "file" && "opacity-0 max-h-6 absolute";
@@ -51,6 +52,7 @@ const Input: FunctionComponent<IInputProps> = ({
           data-cy="input"
           placeholder={placeholder}
           onChange={handleChange}
+          name={name}
           value={value}
           className={`w-full appearance-none md:placeholder:text-xs placeholder:text-mobsm outline-0 ${shouldOpacityBeZero()}`}
         />
