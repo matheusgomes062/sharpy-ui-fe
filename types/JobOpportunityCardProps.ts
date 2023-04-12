@@ -4,9 +4,9 @@ export default interface IJobOpportunityCardProps {
    */
   id: number;
   /**
-   * Title of the vacancy
+   * Title of the job
    */
-  jobOpportunityCardTitle: string;
+  role: string;
   /**
    * Country of job
    */
@@ -14,5 +14,13 @@ export default interface IJobOpportunityCardProps {
   /**
    * Modality of job
    */
-  modality: "Remoto" | "Presencial" | "Híbrido";
+  modality: string;
+  /**
+   * journey of job
+   */
+  journey: string;
+  /**
+   * Description of job
+   */
+  description: string;
 }
