@@ -1,6 +1,6 @@
 import { Prospects } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "../../prisma/client";
+import { prisma } from "../../prisma/client";
 
 async function GetProspects(req: NextApiRequest, res: NextApiResponse<Prospects | null>) {
   try {
@@ -17,11 +17,9 @@ async function GetProspects(req: NextApiRequest, res: NextApiResponse<Prospects 
       },
     });
     res.status(200).json(result);
-    await prisma.$disconnect();
   } catch (err) {
     console.log(err);
     res.status(403);
-    await prisma.$disconnect();
   }
 }
 
