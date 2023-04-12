@@ -1,7 +1,6 @@
-import { PrismaClient, Role } from "@prisma/client";
+import { Role } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-const prisma = new PrismaClient();
+import prisma from "../../prisma/client";
 
 async function GetRoleById(req: NextApiRequest, res: NextApiResponse<Role | null>) {
   try {

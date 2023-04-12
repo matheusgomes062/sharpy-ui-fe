@@ -1,8 +1,8 @@
-import { PrismaClient, Prospects } from "@prisma/client";
+import { Prospects } from "@prisma/client";
+import type { NextApiRequest, NextApiResponse } from "next";
+import prisma from "../../prisma/client";
 
-const prisma = new PrismaClient();
-
-async function GetProspects(_req: { body: any; }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: Prospects[]): void; new(): any; }; }; }) {
+async function GetProspects(_req: NextApiRequest, res: NextApiResponse<Prospects[] | null>) {
   try {
     const result = await prisma.prospects.findMany();
     res.status(200).json(result);
