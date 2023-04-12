@@ -11,7 +11,7 @@ import Button from "./Button";
 import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/dist/client/router";
-import FileUploader from "middlewares/FileUploader";
+import FileUploader from "../middlewares/FileUploader";
 
 interface IFormState {
   name: string | undefined;
