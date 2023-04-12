@@ -2,7 +2,7 @@ import { Role } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "../../prisma/client";
 
-async function getProspects(req: NextApiRequest, res: NextApiResponse<Role | null>) {
+async function GetProspects(req: NextApiRequest, res: NextApiResponse<Role | null>) {
   try {
     const data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
 
@@ -23,4 +23,4 @@ async function getProspects(req: NextApiRequest, res: NextApiResponse<Role | nul
   }
 }
 
-export default getProspects;
+export default GetProspects;
