@@ -1,6 +1,4 @@
 import IButtonProps from "./ButtonProps";
-import IJobOpportunityCardProps from "./JobOpportunityCardProps";
-import ISectionTitleProps from "./SectionTitleProps";
 
 export default interface IJobDescription extends IButtonProps {
   /**

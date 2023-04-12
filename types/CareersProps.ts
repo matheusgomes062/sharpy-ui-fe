@@ -1,6 +1,3 @@
-import IJobOpportunityCardProps from "./JobOpportunityCardProps";
-
-
 export default interface ICareersProps {
   /**
    * Input placeholder
