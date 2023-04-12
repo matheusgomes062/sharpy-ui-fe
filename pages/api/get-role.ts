@@ -9,11 +9,9 @@ async function GetRoleById(req: NextApiRequest, res: NextApiResponse<Role | null
       where: { id: parseInt(id as string) },
     });
     res.status(200).json(result);
-    await prisma.$disconnect();
   } catch (err: any) {
     console.log(err);
     res.status(403);
-    await prisma.$disconnect();
   }
 }
 

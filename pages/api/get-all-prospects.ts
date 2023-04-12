@@ -6,11 +6,9 @@ async function GetProspects(_req: NextApiRequest, res: NextApiResponse<Prospects
   try {
     const result = await prisma.prospects.findMany();
     res.status(200).json(result);
-    await prisma.$disconnect();
   } catch (err) {
     console.log(err);
     res.status(403);
-    await prisma.$disconnect();
   }
 }
 
