@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import JobForm from "@/components/JobForm";
 import { useRouter } from "next/dist/client/router";
+import MoreOpportunities from "@/components/MoreOpportunities";
 
 export default function CareersPage() {
   const router = useRouter();
@@ -25,6 +26,12 @@ export default function CareersPage() {
         primary={true}
         type="text"
         underline={true}
+      />
+      <MoreOpportunities
+        selectedJobId={parseInt(param as string)}
+        buttonLabel="Ver Mais"
+        dropDownPlaceholder="Filtrar pro Área"
+        inputPlaceholder="Buscar Oportunidade"
       />
     </Layout>
   );
