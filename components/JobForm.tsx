@@ -80,7 +80,7 @@ const JobForm: FunctionComponent<IJobFormProps> = ({
     if (!file) return;
 
     const url = await FileUploader(file, 'cv');
-    console.log(url)
+
     setFormValues((prevState) => {
       return {
         ...prevState,
