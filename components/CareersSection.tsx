@@ -45,7 +45,7 @@ const CareersSection: FunctionComponent<ICareersSectionProps> = ({
           mode={mode}
         />
 
-        <div className="flex flex-wrap w-full mt-8 mb-10 lg:justify-between lg:flex-nowrap">
+        <div className="flex flex-wrap w-full mt-8 mb-10 lg:justify-start lg:flex-nowrap">
           {jobs !== null && jobs.slice(0, 3).map((job) => (
             <JobOpportunityCard key={job.id} {...job} />
           ))}
