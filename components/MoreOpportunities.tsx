@@ -9,7 +9,12 @@ import IMoreOpportunitiesProps from 'types/MoreOpportunitiesProps';
 import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
 import Link from "next/link";
 
-const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({ ...props }) => {
+const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({
+  inputPlaceholder,
+  dropDownPlaceholder,
+  buttonLabel,
+  selectedJobId
+}) => {
 
   const [jobs, setJobs] = useState<IJobOpportunityCardProps[]>([]);
 
@@ -19,15 +24,15 @@ const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({ ...prop
 
       const json = await res.json();
 
-      const filteredJobs = json.filter((job: IJobOpportunityCardProps) => job.id !== props.selectedJobId);
+      const filteredJobs = json.filter((job: IJobOpportunityCardProps) => job.id !== selectedJobId);
 
       setJobs(filteredJobs);
     }
     fetchJobs();
-  }, [props.selectedJobId]);
+  }, [selectedJobId]);
   
   return (
-    <div className="flex justify-center w-full" {...props}>
+    <div className="flex justify-center w-full">
       <div className="flex flex-col justify-center w-full max-w-6xl p-4 md:my-15">
         <h1 className="font-bold text-mobh3 md:text-lg">Mais Oportunidades</h1>
         <div className="h-3 mt-2 w-14 bg-primary-orange md:mt-4" />
@@ -44,20 +49,20 @@ const MoreOpportunities: FunctionComponent<IMoreOpportunitiesProps> = ({ ...prop
         )}
         <div>
           <Link href="/careers/all-jobs">
-            <Button primary={true} label={props.buttonLabel} />
+            <Button primary={true} label={buttonLabel} />
           </Link>
         </div>
         <div className="flex flex-wrap mt-10">
           <div className="w-full md:w-80">
             <Input
-              placeholder={props.inputPlaceholder}
+              placeholder={inputPlaceholder}
               type="text"
               icon="magnify"
             />
           </div>
           <div className="w-full mt-4 md:ml-4 md:mt-0 md:w-80">
             <Dropdown
-              placeholder={props.dropDownPlaceholder}
+              placeholder={dropDownPlaceholder}
               options={countryList}
             />
           </div>
