@@ -30,4 +30,12 @@ export default interface IJobFormProps extends ISectionTitleProps, ISmartLinkPro
    * which is the placeholder of text area?
    */
   textAreaPlaceholder: string;
+  /**
+   * A Message that will be displayed when user apply for some job
+   */
+  thankYouMessage: string;
+  /**
+   * A Message that will be displayed above the thankTouMessage
+   */
+  titleForThanksMessage: string;
 }

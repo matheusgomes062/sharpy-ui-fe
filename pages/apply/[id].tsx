@@ -26,6 +26,8 @@ export default function CareersPage() {
         primary={true}
         type="text"
         underline={true}
+        titleForThanksMessage="Mensagem de agradecimento!"
+        thankYouMessage="Obrigado por se inscrever, estaremos revisando seu currículo e encaminharemos o retorno para o seu e-mail. Boa sorte!"
       />
       <MoreOpportunities
         selectedJobId={parseInt(param as string)}
