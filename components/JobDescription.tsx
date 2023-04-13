@@ -77,15 +77,6 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
       <Link href={`/apply/${job.id}`}>
         <Button label={props.label} primary={props.primary} />
       </Link>
-      <div className="mt-8 mb-12">
-        <SmartLink
-          href="/"
-          label="Compartilhar oportunidade"
-          mode="dark"
-          type="url"
-          underline={true}
-        />
-      </div>
     </div>
   );
 };
