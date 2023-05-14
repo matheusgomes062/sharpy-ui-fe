@@ -7,6 +7,7 @@ import IButtonProps from "types/ButtonProps";
 const Button: FunctionComponent<IButtonProps> = ({
   primary,
   label,
+  onClick,
   ...props
 }) => {
   const mode = primary
@@ -19,6 +20,7 @@ const Button: FunctionComponent<IButtonProps> = ({
       role="button"
       data-cy="click"
       className={`btn text-white uppercase ${mode} px-5 h-[42px] text-mobbase font-medium md:px-10 md:h-[70px] md:text-sm md:font-semibold`}
+      onClick={onClick}
       {...props}
     >
       {label}

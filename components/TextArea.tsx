@@ -1,16 +1,17 @@
 import React, { useState, FunctionComponent } from "react";
 import ITextAreaProp from "types/TextAreaProp";
 
-const TextArea: FunctionComponent<ITextAreaProp> = ({ onChange, textAreaPlaceholder }) => {
+const TextArea: FunctionComponent<ITextAreaProp> = ({ onChange, textAreaPlaceholder, name }) => {
   const [value, setValue] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
-  const handleChange = (event: { target: { value: any } }) => {
-    const inputValue = event.target.value;
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const inputValue = e.target.value;
     const characterCount = Math.min(inputValue.length, 500);
     setValue(inputValue.substring(0, 500));
     setCharacterCount(characterCount);
-    onChange(inputValue.substring(0, 500));
+
+    onChange && onChange(e);
   };
 
   return (
@@ -19,6 +20,7 @@ const TextArea: FunctionComponent<ITextAreaProp> = ({ onChange, textAreaPlacehol
         value={value}
         onChange={handleChange}
         maxLength={500}
+        name={name}
         placeholder={textAreaPlaceholder}
         data-cy="textarea"
         className="w-full p-2 overflow-hidden border-0 appearance-none resize-none md:placeholder:text-xs placeholder:text-mobsm outline-0 h-52"

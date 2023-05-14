@@ -17,10 +17,6 @@ const Template: ComponentStory<typeof JobForm> = (args) => (
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  jobTitle: "Analista de dados",
-  jobCountry: "Brazil",
-  jobModality: "Remoto",
-  jobJourney: "Tempo Integral",
   href: "/",
   textAreaPlaceholder: "Carta de apresentação",
   inputEmailPlaceholder: "E-mail",

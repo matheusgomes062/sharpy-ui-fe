@@ -22,10 +22,20 @@ const CreateGroupOfJobs = (jobOpportunities: IJobOpportunityCardProps[], maxJobs
 };
 
 const Careers: FunctionComponent<ICareersProps> = ({
-  jobOpportunities,
   inputPlaceholder,
   dropDownPlaceholder
 }) => {
+  const [jobs, setJobs] = useState<IJobOpportunityCardProps[]>([]);
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const res = await fetch("/api/get-all-roles");
+      const json = await res.json();
+      setJobs(json);
+    }
+    fetchJobs();
+  }, [])
+
   const windowWidth = typeof window !== "undefined" && window.innerWidth;
 
   const [selectedPage, setSelectedPage] = useState(0);
@@ -34,18 +44,18 @@ const Careers: FunctionComponent<ICareersProps> = ({
 
   const [groupOfJobs, setGroupOfJobs] = useState(Array<IJobOpportunityCardProps>);
   
-  const getMaxJobsPerPage = windowWidth <= 768 ? 6 : 9;
+  const getMaxJobsPerPage = !!windowWidth && windowWidth <= 768 ? 6 : 9;
 
-  const totalPages = () => { return CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage).length; }
+  const totalPages = () => { return CreateGroupOfJobs(jobs, getMaxJobsPerPage).length; }
 
   const { handleTouchStart, handleTouchEnd } = useTouchEvent(handleSelectedPage, selectedPage, totalPages());
 
   useEffect(() => {
-    if (jobOpportunities) {
-      const groupOfJobs = CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage);
+    if (jobs) {
+      const groupOfJobs = CreateGroupOfJobs(jobs, getMaxJobsPerPage);
       setGroupOfJobs(groupOfJobs[selectedPage]);
     }
-  }, [getMaxJobsPerPage, jobOpportunities, selectedPage]);
+  }, [getMaxJobsPerPage, jobs, selectedPage]);
   
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -89,7 +99,7 @@ const Careers: FunctionComponent<ICareersProps> = ({
             ))}
           </div>
           <Pagination
-            numberOfPages={CreateGroupOfJobs(jobOpportunities, getMaxJobsPerPage).length}
+            numberOfPages={CreateGroupOfJobs(jobs, getMaxJobsPerPage).length}
             selectedPage={selectedPage}
             handleCallback={handleSelectedPage}
           />

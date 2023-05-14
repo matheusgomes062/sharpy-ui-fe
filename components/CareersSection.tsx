@@ -4,12 +4,13 @@ import JobOpportunityCard from "./JobOpportunityCard";
 import SectionTitle from "./SectionTitle";
 import Button from "./Button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
 
 /**
  * Button component for user interaction
  */
 const CareersSection: FunctionComponent<ICareersSectionProps> = ({
-  jobOpportunities,
   label,
   mode,
   sectionTitle,
@@ -18,6 +19,19 @@ const CareersSection: FunctionComponent<ICareersSectionProps> = ({
   primary,
   ...props
 }) => {
+
+  const [jobs, setJobs] = useState<IJobOpportunityCardProps[]>([]);
+
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const res = await fetch("/api/get-all-roles");
+      const json = await res.json();
+      setJobs(json);
+    }
+    fetchJobs();
+  }, [])
+
   return (
     <div
       className="flex justify-center w-full p-4 mt-10 mb-10 md:mt-24 md:mb-24"
@@ -31,12 +45,9 @@ const CareersSection: FunctionComponent<ICareersSectionProps> = ({
           mode={mode}
         />
 
-        <div className="flex flex-wrap w-full mt-8 mb-10 lg:justify-between lg:flex-nowrap">
-          {jobOpportunities.slice(0, 3).map((vacancy) => (
-            <JobOpportunityCard
-              key={vacancy.jobOpportunityCardTitle}
-              {...vacancy}
-            />
+        <div className="flex flex-wrap w-full mt-8 mb-10 lg:justify-start lg:flex-nowrap">
+          {jobs !== null && jobs.slice(0, 3).map((job) => (
+            <JobOpportunityCard key={job.id} {...job} />
           ))}
         </div>
         <div>

@@ -6,11 +6,32 @@ import { mdiMapMarkerOutline, mdiBriefcaseOutline } from "@mdi/js";
 import Button from "./Button";
 import SmartLink from "./SmartLink";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import IJobOpportunityCardProps from "types/JobOpportunityCardProps";
+import Markdown from "./Markdown";
 
 const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
+
+  const [job, setJob] = useState<IJobOpportunityCardProps | null>(null);
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const res = await fetch(`/api/get-role?id=${props.id}`);
+      const json = await res.json();
+      setJob(json);
+    }
+
+    fetchJobs();
+  }, [props.id]);
+
+
+  if (!job) {
+    return null;
+  }
+
   return (
     <div data-cy="jobDescription" className="w-full max-w-6xl p-4 m-auto">
-      <SectionTitle sectionTitle={props.title} mode={props.mode} />
+      <SectionTitle sectionTitle={job.role} mode={props.mode} />
 
       <div className="flex flex-col">
         <div className="flex mb-5 md:mt-10 md:mb-8">
@@ -21,7 +42,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
               className="pr-1 fill-primary-orange"
             />
           </div>
-          <p className="font-normal md:text-sm text-mobsm">{props.journey}</p>
+          <p className="font-normal md:text-sm text-mobsm">{job.journey}</p>
         </div>
         <div className="flex md:mb-16 mb-7">
           <div className="w-6 h-6 md:h-10 md:w-10">
@@ -32,7 +53,7 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
             />
           </div>
           <p className="font-normal md:text-sm text-mobsm">
-            {props.modality}, {props.country}
+            {job.modality}, {job.country}
           </p>
         </div>
       </div>
@@ -48,54 +69,14 @@ const JobDescription: FunctionComponent<IJobDescription> = ({ ...props }) => {
         </div>
 
         <div className="mb-8 md:mb-11">
-          <p className="font-semibold md:text-base text-mobh3">
-            Responsabilidades:
-          </p>
-          <ul className="pl-3">
-            {props.responsibilities.map((responsibility, index) => (
-              <li key={index} className="font-normal md:text-xs text-mobsm">
-                • {responsibility}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mb-8 md:mb-11">
-          <p className="font-semibold md:text-base text-mobh3">
-            Qualificações:
-          </p>
-          <ul className="pl-3">
-            {props.qualifications.map((qualification, index) => (
-              <li key={index} className="font-normal md:text-xs text-mobsm">
-                • {qualification}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mb-11">
-          <p className="font-semibold md:text-base text-mobh3">Benefícios:</p>
-          <ul className="pl-3">
-            {props.benefits.map((benefit, index) => (
-              <li key={index} className="font-normal md:text-xs text-mobsm">
-                • {benefit}
-              </li>
-            ))}
-          </ul>
+          <article className="prose-sm prose md:prose-lg prose-p:text-black">
+            <Markdown content={job.description} />
+          </article>
         </div>
       </div>
-      <Link href={`/apply/${props.id}`}>
+      <Link href={`/apply/${job.id}`}>
         <Button label={props.label} primary={props.primary} />
       </Link>
-      <div className="mt-8 mb-12">
-        <SmartLink
-          href="/"
-          label="Compartilhar oportunidade"
-          mode="dark"
-          type="url"
-          underline={true}
-        />
-      </div>
     </div>
   );
 };

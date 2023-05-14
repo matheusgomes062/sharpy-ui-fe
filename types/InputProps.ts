@@ -6,13 +6,17 @@ export default interface IInputProps {
   /**
    * Input type
    */
-  type: 'text' | 'file' | 'email';
+  type: "text" | "file" | "email";
   /**
    * Input type
    */
-  icon: 'magnify' | 'trayArrowUp' | 'none';
+  icon: "magnify" | "trayArrowUp" | "none";
+  /**
+   * Name of the input
+   */
+  name?: string;
   /**
    * Click handler
    */
-  onChange?: () => void;
+  onChange?: (value: any) => void;
 }
